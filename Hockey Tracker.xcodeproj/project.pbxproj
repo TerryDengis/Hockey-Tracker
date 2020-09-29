@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FE1BFC62251BB22600D22073 /* DateSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BFC61251BB22600D22073 /* DateSelectionView.swift */; };
+		FE1BFC65251BE02400D22073 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BFC64251BE02400D22073 /* Extension+Date.swift */; };
+		FE1BFC6C251C31C700D22073 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BFC6B251C31C700D22073 /* GameListView.swift */; };
+		FE1BFC6F251C3CC900D22073 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BFC6E251C3CC900D22073 /* SettingsView.swift */; };
+		FE2E51C12516BCA500EF10CE /* SummaryShotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51C02516BCA500EF10CE /* SummaryShotsView.swift */; };
+		FE2E51C52516D7AE00EF10CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51C42516D7AE00EF10CE /* Constants.swift */; };
+		FE2E51C82516D83400EF10CE /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51C72516D83400EF10CE /* Extension+UIColor.swift */; };
+		FE2E51D22516EB2400EF10CE /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51D12516EB2400EF10CE /* GameVM.swift */; };
+		FE2E51D52516EB3B00EF10CE /* ScheduleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51D42516EB3B00EF10CE /* ScheduleVM.swift */; };
+		FE2E51DA2516EBC200EF10CE /* DrawingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51D92516EBC200EF10CE /* DrawingConstants.swift */; };
+		FE2E51DD2516EDB100EF10CE /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51DC2516EDB100EF10CE /* ChevronView.swift */; };
+		FE3861B8251A3AD1009E5F94 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3861B7251A3AD1009E5F94 /* ScheduleView.swift */; };
+		FE428FD625128079005BB4CC /* Hockey_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE428FD525128079005BB4CC /* Hockey_TrackerApp.swift */; };
+		FE428FD825128079005BB4CC /* RinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE428FD725128079005BB4CC /* RinkView.swift */; };
+		FE428FDA2512807A005BB4CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE428FD92512807A005BB4CC /* Assets.xcassets */; };
+		FE428FDD2512807A005BB4CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE428FDC2512807A005BB4CC /* Preview Assets.xcassets */; };
+		FEB1E3CC2516F8F500951D10 /* GameSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3CB2516F8F500951D10 /* GameSummary.swift */; };
+		FEB1E3D02516F9C300951D10 /* LineScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3CF2516F9C300951D10 /* LineScore.swift */; };
+		FEB1E3D52516FA2700951D10 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3D42516FA2700951D10 /* Teams.swift */; };
+		FEB1E3D82516FA3D00951D10 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3D72516FA3D00951D10 /* Schedule.swift */; };
+		FEB1E3DD2516FB3000951D10 /* Model Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3DC2516FB3000951D10 /* Model Enums.swift */; };
+		FEB1E3E02516FD6D00951D10 /* Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3DF2516FD6D00951D10 /* Generated.swift */; };
+		FEDFA52D25226BC6003EE9BE /* PlayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA52C25226BC6003EE9BE /* PlayDetailView.swift */; };
+		FEE83DA82513188300ECCB54 /* SummaryGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE83DA72513188300ECCB54 /* SummaryGoalView.swift */; };
+		FEF727362513C74C00713CFE /* PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF727352513C74C00713CFE /* PeriodView.swift */; };
+		FEF727382513C78E00713CFE /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF727372513C78E00713CFE /* ScoreView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FE1BFC61251BB22600D22073 /* DateSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionView.swift; sourceTree = "<group>"; };
+		FE1BFC64251BE02400D22073 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
+		FE1BFC6B251C31C700D22073 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
+		FE1BFC6E251C3CC900D22073 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FE2E51C02516BCA500EF10CE /* SummaryShotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryShotsView.swift; sourceTree = "<group>"; };
+		FE2E51C42516D7AE00EF10CE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FE2E51C72516D83400EF10CE /* Extension+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		FE2E51D12516EB2400EF10CE /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
+		FE2E51D42516EB3B00EF10CE /* ScheduleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVM.swift; sourceTree = "<group>"; };
+		FE2E51D92516EBC200EF10CE /* DrawingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingConstants.swift; sourceTree = "<group>"; };
+		FE2E51DC2516EDB100EF10CE /* ChevronView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
+		FE3861B7251A3AD1009E5F94 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		FE428FD225128079005BB4CC /* Hockey Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hockey Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE428FD525128079005BB4CC /* Hockey_TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hockey_TrackerApp.swift; sourceTree = "<group>"; };
+		FE428FD725128079005BB4CC /* RinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RinkView.swift; sourceTree = "<group>"; };
+		FE428FD92512807A005BB4CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE428FDC2512807A005BB4CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FE428FDE2512807A005BB4CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEB1E3CB2516F8F500951D10 /* GameSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSummary.swift; sourceTree = "<group>"; };
+		FEB1E3CF2516F9C300951D10 /* LineScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineScore.swift; sourceTree = "<group>"; };
+		FEB1E3D42516FA2700951D10 /* Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
+		FEB1E3D72516FA3D00951D10 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		FEB1E3DC2516FB3000951D10 /* Model Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model Enums.swift"; sourceTree = "<group>"; };
+		FEB1E3DF2516FD6D00951D10 /* Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generated.swift; sourceTree = "<group>"; };
+		FEDFA52C25226BC6003EE9BE /* PlayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayDetailView.swift; sourceTree = "<group>"; };
+		FEE83DA72513188300ECCB54 /* SummaryGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryGoalView.swift; sourceTree = "<group>"; };
+		FEF727352513C74C00713CFE /* PeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodView.swift; sourceTree = "<group>"; };
+		FEF727372513C78E00713CFE /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE428FCF25128079005BB4CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FE2E51CB2516EA5500EF10CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E51D72516EB4B00EF10CE /* Game */,
+				FE428FD92512807A005BB4CC /* Assets.xcassets */,
+				FE2E51D92516EBC200EF10CE /* DrawingConstants.swift */,
+				FE3861BA251A3C50009E5F94 /* Schedule */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE2E51CD2516EA7900EF10CE /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E51C72516D83400EF10CE /* Extension+UIColor.swift */,
+				FE1BFC64251BE02400D22073 /* Extension+Date.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		FE2E51CF2516EAA100EF10CE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E51D12516EB2400EF10CE /* GameVM.swift */,
+				FE2E51D42516EB3B00EF10CE /* ScheduleVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FE2E51D02516EAB900EF10CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E51C42516D7AE00EF10CE /* Constants.swift */,
+				FEB1E3CB2516F8F500951D10 /* GameSummary.swift */,
+				FEB1E3D72516FA3D00951D10 /* Schedule.swift */,
+				FEB1E3CF2516F9C300951D10 /* LineScore.swift */,
+				FEB1E3D42516FA2700951D10 /* Teams.swift */,
+				FEB1E3DC2516FB3000951D10 /* Model Enums.swift */,
+				FEB1E3DF2516FD6D00951D10 /* Generated.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE2E51D72516EB4B00EF10CE /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				FE428FD725128079005BB4CC /* RinkView.swift */,
+				FEF727352513C74C00713CFE /* PeriodView.swift */,
+				FEE83DA72513188300ECCB54 /* SummaryGoalView.swift */,
+				FE2E51C02516BCA500EF10CE /* SummaryShotsView.swift */,
+				FE2E51DC2516EDB100EF10CE /* ChevronView.swift */,
+				FE1BFC6E251C3CC900D22073 /* SettingsView.swift */,
+				FEDFA52C25226BC6003EE9BE /* PlayDetailView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		FE3861BA251A3C50009E5F94 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				FE1BFC61251BB22600D22073 /* DateSelectionView.swift */,
+				FE3861B7251A3AD1009E5F94 /* ScheduleView.swift */,
+				FE1BFC6B251C31C700D22073 /* GameListView.swift */,
+				FEF727372513C78E00713CFE /* ScoreView.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		FE428FC925128079005BB4CC = {
+			isa = PBXGroup;
+			children = (
+				FE428FD425128079005BB4CC /* Hockey Tracker */,
+				FE428FD325128079005BB4CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FE428FD325128079005BB4CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE428FD225128079005BB4CC /* Hockey Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE428FD425128079005BB4CC /* Hockey Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				FE428FD525128079005BB4CC /* Hockey_TrackerApp.swift */,
+				FE2E51D02516EAB900EF10CE /* Model */,
+				FE2E51CB2516EA5500EF10CE /* View */,
+				FE2E51CF2516EAA100EF10CE /* ViewModel */,
+				FE428FDE2512807A005BB4CC /* Info.plist */,
+				FE2E51CD2516EA7900EF10CE /* SupportingFiles */,
+				FE428FDB2512807A005BB4CC /* Preview Content */,
+			);
+			path = "Hockey Tracker";
+			sourceTree = "<group>";
+		};
+		FE428FDB2512807A005BB4CC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FE428FDC2512807A005BB4CC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE428FD125128079005BB4CC /* Hockey Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE428FE12512807A005BB4CC /* Build configuration list for PBXNativeTarget "Hockey Tracker" */;
+			buildPhases = (
+				FE428FCE25128079005BB4CC /* Sources */,
+				FE428FCF25128079005BB4CC /* Frameworks */,
+				FE428FD025128079005BB4CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hockey Tracker";
+			productName = "Hockey Tracker";
+			productReference = FE428FD225128079005BB4CC /* Hockey Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE428FCA25128079005BB4CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					FE428FD125128079005BB4CC = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = FE428FCD25128079005BB4CC /* Build configuration list for PBXProject "Hockey Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE428FC925128079005BB4CC;
+			productRefGroup = FE428FD325128079005BB4CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE428FD125128079005BB4CC /* Hockey Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE428FD025128079005BB4CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE428FDD2512807A005BB4CC /* Preview Assets.xcassets in Resources */,
+				FE428FDA2512807A005BB4CC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE428FCE25128079005BB4CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEB1E3D52516FA2700951D10 /* Teams.swift in Sources */,
+				FE1BFC6F251C3CC900D22073 /* SettingsView.swift in Sources */,
+				FEB1E3D02516F9C300951D10 /* LineScore.swift in Sources */,
+				FEDFA52D25226BC6003EE9BE /* PlayDetailView.swift in Sources */,
+				FE428FD825128079005BB4CC /* RinkView.swift in Sources */,
+				FE2E51D22516EB2400EF10CE /* GameVM.swift in Sources */,
+				FEF727362513C74C00713CFE /* PeriodView.swift in Sources */,
+				FEB1E3DD2516FB3000951D10 /* Model Enums.swift in Sources */,
+				FE428FD625128079005BB4CC /* Hockey_TrackerApp.swift in Sources */,
+				FEB1E3D82516FA3D00951D10 /* Schedule.swift in Sources */,
+				FE2E51DD2516EDB100EF10CE /* ChevronView.swift in Sources */,
+				FE2E51C82516D83400EF10CE /* Extension+UIColor.swift in Sources */,
+				FE1BFC6C251C31C700D22073 /* GameListView.swift in Sources */,
+				FEB1E3CC2516F8F500951D10 /* GameSummary.swift in Sources */,
+				FEE83DA82513188300ECCB54 /* SummaryGoalView.swift in Sources */,
+				FE1BFC65251BE02400D22073 /* Extension+Date.swift in Sources */,
+				FE2E51C52516D7AE00EF10CE /* Constants.swift in Sources */,
+				FE1BFC62251BB22600D22073 /* DateSelectionView.swift in Sources */,
+				FEB1E3E02516FD6D00951D10 /* Generated.swift in Sources */,
+				FE2E51DA2516EBC200EF10CE /* DrawingConstants.swift in Sources */,
+				FEF727382513C78E00713CFE /* ScoreView.swift in Sources */,
+				FE2E51D52516EB3B00EF10CE /* ScheduleVM.swift in Sources */,
+				FE2E51C12516BCA500EF10CE /* SummaryShotsView.swift in Sources */,
+				FE3861B8251A3AD1009E5F94 /* ScheduleView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FE428FDF2512807A005BB4CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FE428FE02512807A005BB4CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE428FE22512807A005BB4CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Hockey Tracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 8WA3Q4R937;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Hockey Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Wavelength.Hockey-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE428FE32512807A005BB4CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Hockey Tracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 8WA3Q4R937;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Hockey Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Wavelength.Hockey-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE428FCD25128079005BB4CC /* Build configuration list for PBXProject "Hockey Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE428FDF2512807A005BB4CC /* Debug */,
+				FE428FE02512807A005BB4CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE428FE12512807A005BB4CC /* Build configuration list for PBXNativeTarget "Hockey Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE428FE22512807A005BB4CC /* Debug */,
+				FE428FE32512807A005BB4CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE428FCA25128079005BB4CC /* Project object */;
+}
