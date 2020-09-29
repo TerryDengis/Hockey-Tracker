@@ -22,6 +22,7 @@ struct PlayDetailView: View {
             Text("\(play.about.ordinalNum) \(play.about.period <= 3 ? "Period" :"") @ \(play.about.periodTime)")
                 .font(.title)
         }
+        .foregroundColor(.primary)
         .padding()
     }
 }

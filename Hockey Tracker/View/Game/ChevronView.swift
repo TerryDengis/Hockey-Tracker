@@ -9,37 +9,39 @@ import SwiftUI
 
 struct ChevronView: View {
     @ObservedObject var gameVM: GameVM
-    @State private var showPlayDetails = false
-    @State private var tappedPlay:GameSummary.LiveData.Plays.Play?
-    
-    var period: Int
+    var play: GameSummary.LiveData.Plays.Play
     var scaleFactor: CGFloat
     
+    @State private var showPlayDetails = false
+    
+    @State private var rotation = 0.0
+    @State private var scale: CGFloat = 1.0
+    
     var body: some View {
-        let plays = gameVM.playsForPeriod(period)
-        
-        ForEach(plays, id: \.id) { play in
-            Image(systemName: gameVM.eventImageFor(play))
-                .position(x: gameVM.xCoordinateFor(play) * scaleFactor, y: gameVM.yCoordinateFor(play) * scaleFactor)
-                .font(.system(size: chevronFont + (gameVM.isGoal(play) ? 5: 0), weight: .bold))
-                .foregroundColor(Color(gameVM.teamColorFor(play)))
 
-                .onTapGesture {
-                    self.tappedPlay = play
-                    self.showPlayDetails.toggle()
-                }
-                .popover(isPresented: $showPlayDetails) {
-                    PlayDetailView(gameVM: gameVM, play: tappedPlay!)
-                }
-                .transition(.asymmetric (
-                                insertion: AnyTransition.scale.animation(.linear(duration:2)),
-                                removal: AnyTransition.scale.animation(.easeInOut(duration:2)
-                                )))
-//                .rotationEffect(.degrees(gameVM.isGoal(play) ? 360 : 0))
-//                .animation(gameVM.isGoal(play) ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
+        Image(systemName: gameVM.eventImageFor(play))
 
-        }
+            .font(.system(size: chevronFont, weight:.bold))
+
+            .foregroundColor(Color(gameVM.teamColorFor(play)))
+            .onTapGesture {
+                self.showPlayDetails = true //.toggle()
+            }
+            .popover(isPresented: $showPlayDetails) {
+                PlayDetailView(gameVM: gameVM, play: play)
+            }
+            //.transition(AnyTransition.opacity.animation(.easeInOut))
+            .rotationEffect(.degrees(gameVM.isGoal(play) ? rotation : 0))
+            .animation( Animation.linear(duration: 2).repeatForever(autoreverses: false))
+            .scaleEffect(gameVM.isGoal(play) ? scale : 1.0)
+            .animation( Animation.linear(duration: 2).repeatForever(autoreverses: true))
+            .onAppear {
+                self.rotation = 360
+                self.scale = 2.0
+            }
+            .position(x: gameVM.xCoordinateFor(play) * scaleFactor, y: gameVM.yCoordinateFor(play) * scaleFactor)
     }
+
     var chevronFont: CGFloat {
         if scaleFactor < 3.0 {
             return 10

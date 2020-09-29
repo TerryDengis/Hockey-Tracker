@@ -16,7 +16,9 @@ struct PeriodView: View {
             if let periods = gameVM.periods {
                 ForEach(periods, id: \.id) { period in
                     Button(period.ordinalNum) {
-                        currentPeriod = period.id
+                        withAnimation {
+                            currentPeriod = period.id
+                        }
                     }
                     .frame(width: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .border(currentPeriod == period.id ? Color.black : Color.yellow, width: 3)

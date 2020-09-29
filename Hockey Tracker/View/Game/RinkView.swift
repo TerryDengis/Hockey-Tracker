@@ -20,10 +20,12 @@ struct RinkView: View {
     @State private var showSettings: Bool = false
     @State private var updateView: Bool = false
     
+    @State var orientation = UIDevice.current.orientation
+    
     let orientationChanged = NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
         .makeConnectable()
         .autoconnect()
-    
+        
     var body: some View {
         
         ScrollView(.vertical) {
@@ -32,21 +34,24 @@ struct RinkView: View {
             // TODO: - when you start the geometry height is 0
             GeometryReader { geometry in
                 ZStack {
-                Image("Rink")
-                    .resizable()
-                    .aspectRatio(200/85, contentMode: .fit)
-                    .background(Color.init(UIColor.lightGray))
-                    .onAppear {
-                        print("on appear change", geometry.size)
-                        print("Portrait Mode", UIDevice.current.orientation.isPortrait)
-                        scaleFactor = geometry.size.width / rinkWidth
+                    Image("Rink")
+                        .resizable()
+                        .aspectRatio(200/85, contentMode: .fit)
+                        .background(Color.init(UIColor.lightGray))
+                        .onAppear {
+                            print("on appear", geometry.size)
+                            print("Portrait Mode", UIDevice.current.orientation.isPortrait)
+                            scaleFactor = geometry.size.width / rinkWidth
+                        }
+                        .onReceive(orientationChanged) { _ in
+                            scaleFactor = geometry.size.width / rinkWidth
+                            self.orientation = UIDevice.current.orientation
+                        }
+                    let plays = gameVM.playsForPeriod(currentPeriod)
+                    
+                    ForEach(plays, id: \.id) { play in
+                        ChevronView(gameVM: gameVM, play: play, scaleFactor: scaleFactor)
                     }
-                    .onReceive(orientationChanged) { _ in
-                        print("on orientation change", geometry.size)
-                        print("Portrait Mode", UIDevice.current.orientation.isPortrait)
-                        scaleFactor = geometry.size.width / rinkWidth
-                    }
-                ChevronView(gameVM: gameVM, period: currentPeriod, scaleFactor: scaleFactor)
                 }
             } // Geometry
 
@@ -59,7 +64,10 @@ struct RinkView: View {
             .padding()
             //.frame(height:50)
             Spacer()
-        } // VStack
+        } // ScrollView
+        .onReceive(orientationChanged) { _ in
+            self.orientation = UIDevice.current.orientation
+        }
         
         .navigationBarTitle(Text ("\(gameVM.awayTeam) \(gameVM.awayScore) at \(gameVM.homeTeam) \(gameVM.homeScore) \(gameVM.gameStatus)"))
         
