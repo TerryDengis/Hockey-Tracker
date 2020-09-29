@@ -26,7 +26,7 @@ struct RinkView: View {
     
     var body: some View {
         
-        VStack {
+        ScrollView(.vertical) {
             PeriodView(gameVM: gameVM, currentPeriod: $currentPeriod)
                 .padding(.top, 30)
             // TODO: - when you start the geometry height is 0
@@ -51,18 +51,13 @@ struct RinkView: View {
             } // Geometry
 
             .frame(height: rinkDisplayHeight)
-            // TODO: - orientation not set properly when starting in simulator
-            if UIDevice.current.orientation.isPortrait ||
-            UIDevice.current.name.contains("iPad") {
-                HStack {
-                    SummaryShotsView(gameVM: gameVM)
-                    Spacer ()
-                    SummaryGoalView(gameVM: gameVM)
-                    //Divider()
-                }
-                .padding()
-                .frame(height:50)
+            HStack {
+                SummaryShotsView(gameVM: gameVM)
+                Spacer ()
+                SummaryGoalView(gameVM: gameVM)
             }
+            .padding()
+            //.frame(height:50)
             Spacer()
         } // VStack
         

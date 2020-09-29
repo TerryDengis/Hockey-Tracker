@@ -9,7 +9,7 @@ import Foundation
 
 class ScheduleVM: ObservableObject {
     @Published private var schedule: Schedule?
-    private var scheduleDate = Date()
+    private (set) var scheduleDate = Date()
 
     init() {
         fetchScheduleData()

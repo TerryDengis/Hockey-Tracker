@@ -9,10 +9,10 @@ import SwiftUI
 
 struct DateSelectionView: View {
     @EnvironmentObject var scheduleVM: ScheduleVM
-    @State private var currentDate: Date = Date()
+    //@State private var currentDate: Date = Date()
     
     var body: some View {
-        let dateRange = currentDate.getDateRange(firstDay: -60, lastDay: 60)
+        let dateRange = scheduleVM.scheduleDate.getDateRange(firstDay: -30, lastDay: 30)
 
         HStack {
             ScrollView(.horizontal) {
@@ -23,28 +23,29 @@ struct DateSelectionView: View {
                                 Text(dateRange[index].isToday() ? "Today" : dateRange[index].convertToString(dateformat: .shortDate))
                                     .bold()
                                     .frame(width: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .border(dateRange[index] == currentDate ? Color.yellow : Color.black, width: 2)
-                                    .foregroundColor(dateRange[index] == currentDate ? .white : .gray)
-                                    .saturation(dateRange[index] == currentDate ? 1.0 : 0.0)
+                                    .border(dateRange[index] == scheduleVM.scheduleDate ? Color.yellow : Color.black, width: 2)
+                                    .foregroundColor(dateRange[index] == scheduleVM.scheduleDate ? .white : .gray)
+                                    .saturation(dateRange[index] == scheduleVM.scheduleDate ? 1.0 : 0.0)
                                     .font(.body)
                                     .id(index)
                                     .onTapGesture {
                                         withAnimation {
-                                            self.currentDate = dateRange[index]
-                                            value.scrollTo(60, anchor: .center)
+                                            self.scheduleVM.setDate(dateRange[index])
+                                            value.scrollTo(30, anchor: .center)
                                             scheduleVM.setDate(dateRange[index])
                                         }
                                     }
                                     .onAppear {
-                                        value.scrollTo(60, anchor: .center)
+                                        value.scrollTo(30, anchor: .center)
                                     }
                             }
                         }
                     }
                 }
             } // ScrollView
-            //.frame(width: UIScreen.main.bounds.size.width)
+            
         } // HStack
+        .frame(width: UIScreen.main.bounds.size.width)
         .background(Color.black)
     }
 }

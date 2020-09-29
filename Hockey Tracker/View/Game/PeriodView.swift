@@ -19,8 +19,8 @@ struct PeriodView: View {
                         currentPeriod = period.id
                     }
                     .frame(width: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .border(currentPeriod == period.id ? Color.black : Color.gray, width: 3)
-                    .background(currentPeriod == period.id ? Color.black : Color.gray)
+                    .border(currentPeriod == period.id ? Color.black : Color.yellow, width: 3)
+                    .background(currentPeriod == period.id ? Color.black : Color.yellow)
                     .cornerRadius(5)
 
                 }
@@ -29,8 +29,8 @@ struct PeriodView: View {
                         currentPeriod = 5
                     }
                     .frame(width: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .border(currentPeriod == 5 ? Color.black : Color.gray, width: 3)
-                    .background(currentPeriod == 5 ? Color.black : Color.gray)
+                    .border(currentPeriod == 5 ? Color.black : Color.yellow, width: 3)
+                    .background(currentPeriod == 5 ? Color.black : Color.yellow)
                     .cornerRadius(5)
                 }
             }
@@ -42,6 +42,6 @@ struct PeriodView: View {
 
 struct PeriodView_Previews: PreviewProvider {
     static var previews: some View {
-        PeriodView(gameVM: GameVM(gameLink: domainUrl + "/api/v1/game/2019021011/feed/live"), currentPeriod: Binding.constant(2))
+        PeriodView(gameVM: GameVM(gameLink: domainUrl + "/api/v1/game/2019030234/feed/live"), currentPeriod: Binding.constant(2))
     }
 }

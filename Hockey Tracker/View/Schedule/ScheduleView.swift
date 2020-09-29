@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ScheduleView: View {
     @EnvironmentObject var scheduleVM: ScheduleVM
+    @State private var showDatePicker = false
+    @State private var selectedDate = Date()
     
     init() {
         UITableView.appearance().backgroundColor = .lightGray
@@ -35,20 +37,25 @@ struct ScheduleView: View {
                     .imageScale(.large)
                     .foregroundColor(.blue)
                     .onTapGesture {
-                        //self.showSettings.toggle()
+                        self.showDatePicker.toggle()
                     }
-//                    .popover(isPresented: $showSettings) {
-//                        SettingsView(gameVM: gameVM)
-//                    }
+                    .popover(isPresented: $showDatePicker) {
+                        DatePicker("Games Date", selection: $selectedDate, displayedComponents: .date)
+                            .datePickerStyle(GraphicalDatePickerStyle())
+                            .frame(width:300, height:400)
+                            .onDisappear {
+                                scheduleVM.setDate(selectedDate)
+                            }
+                    }
             )
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        
+        .frame(width: UIScreen.main.bounds.size.width)
     }
 }
 
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView()
+        ScheduleView().environmentObject(ScheduleVM())
     }
 }

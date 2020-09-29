@@ -34,6 +34,12 @@ struct GameListView: View {
 
 struct GameListView_Previews: PreviewProvider {
     static var previews: some View {
-        GameListView()
+        let vm = ScheduleVM()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from:"2020-08-30")!
+        
+        vm.setDate(date)
+        return GameListView().environmentObject(vm)
     }
 }
