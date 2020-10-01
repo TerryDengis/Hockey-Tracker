@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SummaryShotsView: View {
-    @ObservedObject var gameVM: GameVM
+    @EnvironmentObject var gameVM: GameVM
     
     var body: some View {
         HStack {
@@ -43,6 +43,9 @@ struct SummaryShotsView: View {
 
 struct SummaryShotsView_Previews: PreviewProvider {
     static var previews: some View {
-        SummaryShotsView(gameVM: GameVM(gameLink: domainUrl + "/api/v1/game/2019021011/feed/live"))
+        let vm = GameVM()
+        vm.setUrl(domainUrl + "/api/v1/game/2019021011/feed/live")
+        
+        return SummaryShotsView().environmentObject(vm)
     }
 }

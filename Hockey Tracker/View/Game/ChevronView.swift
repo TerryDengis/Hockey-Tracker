@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChevronView: View {
-    @ObservedObject var gameVM: GameVM
+    @EnvironmentObject var gameVM: GameVM
     var play: GameSummary.LiveData.Plays.Play
     var scaleFactor: CGFloat
     
@@ -28,7 +28,7 @@ struct ChevronView: View {
                 self.showPlayDetails = true //.toggle()
             }
             .popover(isPresented: $showPlayDetails) {
-                PlayDetailView(gameVM: gameVM, play: play)
+                PlayDetailView(play:play).environmentObject(gameVM)
             }
             //.transition(AnyTransition.opacity.animation(.easeInOut))
             .rotationEffect(.degrees(gameVM.isGoal(play) ? rotation : 0))

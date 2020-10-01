@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 class GameVM: ObservableObject {
+    private var gameLink: String
     @Published private var gameSummary: GameSummary?
     
     @AppStorage ("showGoals") var showGoals: Bool?
@@ -16,12 +17,13 @@ class GameVM: ObservableObject {
     @AppStorage ("showMissedShots") var showMissedShots: Bool?
     @AppStorage ("showBlockedShots") var showBlockedShots: Bool?
     
-    var gameLink: String
-    
-    init (gameLink: String) {
+    init (gameLink: String = "") {
         self.gameLink = gameLink
     }
     
+    func setUrl(_ url: String) {
+        self.gameLink = url
+    }
     func fetchGameData() {
         if let url = URL(string: gameLink ) {
             print (" game URL", gameLink)

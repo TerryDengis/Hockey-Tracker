@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RinkView: View {
-    @ObservedObject var gameVM: GameVM
+    @StateObject var gameVM: GameVM
     
     @AppStorage ("showGoals") var showGoals: Bool?
     @AppStorage ("showShots") var showShots: Bool?
@@ -29,8 +29,8 @@ struct RinkView: View {
     var body: some View {
         
         ScrollView(.vertical) {
-            PeriodView(gameVM: gameVM, currentPeriod: $currentPeriod)
-                .padding(.top, 30)
+            PeriodView(currentPeriod: $currentPeriod).environmentObject(gameVM)
+                
             // TODO: - when you start the geometry height is 0
             GeometryReader { geometry in
                 ZStack {
@@ -50,16 +50,16 @@ struct RinkView: View {
                     let plays = gameVM.playsForPeriod(currentPeriod)
                     
                     ForEach(plays, id: \.id) { play in
-                        ChevronView(gameVM: gameVM, play: play, scaleFactor: scaleFactor)
+                        ChevronView(play: play, scaleFactor: scaleFactor).environmentObject(gameVM)
                     }
                 }
             } // Geometry
 
             .frame(height: rinkDisplayHeight)
             HStack {
-                SummaryShotsView(gameVM: gameVM)
+                SummaryShotsView().environmentObject(gameVM)
                 Spacer ()
-                SummaryGoalView(gameVM: gameVM)
+                SummaryGoalView().environmentObject(gameVM)
             }
             .padding()
             //.frame(height:50)
@@ -80,7 +80,7 @@ struct RinkView: View {
                         self.showSettings.toggle()
                     }
                     .popover(isPresented: $showSettings) {
-                        SettingsView(gameVM: gameVM)
+                        SettingsView().environmentObject(gameVM)
                     }
         )
         .background(Color.init(UIColor.lightGray))
@@ -99,7 +99,7 @@ struct RinkView: View {
             }
             gameVM.fetchGameData()
         }
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        .edgesIgnoringSafeArea([.bottom, .leading])
     }
 
     var rinkDisplayWidth: CGFloat {

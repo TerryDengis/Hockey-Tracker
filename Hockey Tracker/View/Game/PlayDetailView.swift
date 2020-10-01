@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlayDetailView: View {
-    @ObservedObject var gameVM: GameVM
+    @EnvironmentObject var gameVM: GameVM
     var play: GameSummary.LiveData.Plays.Play
     
     var body: some View {

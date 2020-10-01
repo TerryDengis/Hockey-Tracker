@@ -32,25 +32,6 @@ struct ScoreView: View {
             Text (scheduleVM.gameStatus(for: game))
             Spacer ()
         }
-        
-        
-//        HStack {
-//            HStack {
-//                Text(gameVM.awayTeam)
-//                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-//                Text("\(gameVM.awayScore)")
-//            }
-//            .foregroundColor(Color(gameVM.awayTeamColor))
-//            Text ("at")
-//            HStack {
-//                Text (gameVM.homeTeam)
-//                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-//                Text ("\(gameVM.homeScore)")
-//            }
-//            .foregroundColor(Color(gameVM.homeTeamColor))
-//            Text (gameVM.gameStatus)
-//        }
-//        .font(.headline)
     }
 }
 

@@ -19,6 +19,7 @@ struct GameListView: View {
         // TODO: - needs to be in a form to color the background
         Form {
             List(gamesList, id: \.gamePk) { game in
+
                 NavigationLink (
                     destination: RinkView(gameVM: GameVM(gameLink: domainUrl + scheduleVM.linkFor(game))),
                     label: {

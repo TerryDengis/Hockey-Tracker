@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PeriodView: View {
-    @ObservedObject var gameVM: GameVM
+    @EnvironmentObject var gameVM: GameVM
     @Binding var currentPeriod: Int
     
     var body: some View {
@@ -44,6 +44,10 @@ struct PeriodView: View {
 
 struct PeriodView_Previews: PreviewProvider {
     static var previews: some View {
-        PeriodView(gameVM: GameVM(gameLink: domainUrl + "/api/v1/game/2019030234/feed/live"), currentPeriod: Binding.constant(2))
+
+        let vm = GameVM()
+        vm.setUrl( domainUrl + "/api/v1/game/2019021011/feed/live")
+        
+        return PeriodView(currentPeriod: Binding.constant(2)).environmentObject(vm)
     }
 }
