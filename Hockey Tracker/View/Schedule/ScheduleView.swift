@@ -17,40 +17,45 @@ struct ScheduleView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                DateSelectionView().environmentObject(scheduleVM)
-                if scheduleVM.games.count == 0 {
-                    Text("No Games Scheduled")
-                        .font(.largeTitle)
-                } else {
-                    GameListView().environmentObject(scheduleVM)
-                        .ignoresSafeArea()
-                }
-                Spacer()
-            } // VStack
-            .navigationBarTitle("NHL Schedule", displayMode: .inline)
-            .background(Color(UIColor.lightGray))
-            .navigationBarItems (
-                trailing:
-                    Image(systemName: "calendar")
-                    .imageScale(.large)
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        self.showDatePicker.toggle()
+        VStack {
+            NavigationView {
+                VStack {
+                    DateSelectionView().environmentObject(scheduleVM)
+                    if scheduleVM.games.count == 0 {
+                        Text("No Games Scheduled")
+                            .font(.largeTitle)
+                    } else {
+                        GameListView().environmentObject(scheduleVM)
+                            .ignoresSafeArea()
                     }
-                    .popover(isPresented: $showDatePicker) {
-                        DatePicker("Games Date", selection: $selectedDate, displayedComponents: .date)
-                            .datePickerStyle(GraphicalDatePickerStyle())
-                            .frame(width:300, height:400)
-                            .onDisappear {
-                                scheduleVM.setDate(selectedDate)
-                            }
-                    }
-            )
+                    Spacer()
+                } // VStack
+                .navigationBarTitle("NHL Schedule", displayMode: .inline)
+                .background(Color(UIColor.lightGray))
+                .navigationBarItems (
+                    trailing:
+                        Image(systemName: "calendar")
+                        .imageScale(.large)
+                        .foregroundColor(.blue)
+                        .onTapGesture {
+                            self.showDatePicker.toggle()
+                        }
+                        .popover(isPresented: $showDatePicker) {
+                            DatePicker("Games Date", selection: $selectedDate, displayedComponents: .date)
+                                .datePickerStyle(GraphicalDatePickerStyle())
+                                .frame(width:300, height:400)
+                                .onDisappear {
+                                    scheduleVM.setDate(selectedDate)
+                                }
+                        }
+                )
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .frame(width: UIScreen.main.bounds.size.width) //, height: UIScreen.main.bounds.size.height)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .frame(width: UIScreen.main.bounds.size.width)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(UIColor.lightGray))
+        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 

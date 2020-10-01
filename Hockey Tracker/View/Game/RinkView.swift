@@ -67,8 +67,8 @@ struct RinkView: View {
         } // ScrollView
         .onReceive(orientationChanged) { _ in
             self.orientation = UIDevice.current.orientation
-        }
         
+        }
         .navigationBarTitle(Text ("\(gameVM.awayTeam) \(gameVM.awayScore) at \(gameVM.homeTeam) \(gameVM.homeScore) \(gameVM.gameStatus)"))
         
         .navigationBarItems (
@@ -99,6 +99,7 @@ struct RinkView: View {
             }
             gameVM.fetchGameData()
         }
+        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 
     var rinkDisplayWidth: CGFloat {

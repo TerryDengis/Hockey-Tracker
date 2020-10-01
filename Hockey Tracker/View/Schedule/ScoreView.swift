@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScoreView: View {
-    @ObservedObject var scheduleVM: ScheduleVM
+    @EnvironmentObject var scheduleVM: ScheduleVM
     var game: Schedule.Games.GameDetail
     
     var body: some View {

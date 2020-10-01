@@ -22,7 +22,7 @@ struct GameListView: View {
                 NavigationLink (
                     destination: RinkView(gameVM: GameVM(gameLink: domainUrl + scheduleVM.linkFor(game))),
                     label: {
-                        ScoreView(scheduleVM: scheduleVM, game: game)
+                        ScoreView(game: game).environmentObject(scheduleVM)
                     })
             }
             
