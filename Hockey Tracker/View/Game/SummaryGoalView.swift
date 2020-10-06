@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SummaryGoalView: View {
-    @EnvironmentObject var gameVM: GameVM
+    @EnvironmentObject var gameVM: GameStore
     var body: some View {
         HStack {
             //LazyVGrid(columns: [GridItem(.adaptive(minimum:30))], alignment: .leading)
@@ -43,7 +43,7 @@ struct SummaryGoalView: View {
 
 struct SummaryScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        let vm = GameVM()
+        let vm = GameStore()
         vm.setUrl( domainUrl + "/api/v1/game/2019021011/feed/live")
         
         return SummaryGoalView().environmentObject(vm)

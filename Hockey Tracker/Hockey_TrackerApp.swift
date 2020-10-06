@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Hockey_TrackerApp: App {
-    @StateObject var scheduleVM = ScheduleVM()
+    @StateObject var scheduleVM = ScheduleStore()
     var body: some Scene {
         WindowGroup {
             ScheduleView().environmentObject(scheduleVM)

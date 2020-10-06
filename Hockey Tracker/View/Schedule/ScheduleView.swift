@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @EnvironmentObject var scheduleVM: ScheduleVM
+    @EnvironmentObject var scheduleVM: ScheduleStore
     @State private var showDatePicker = false
     @State private var selectedDate = Date()
-    
+
     init() {
         UITableView.appearance().backgroundColor = .lightGray
     }
@@ -51,7 +51,7 @@ struct ScheduleView: View {
                 )
             }
             .navigationViewStyle(StackNavigationViewStyle())
-            .frame(width: UIScreen.main.bounds.size.width) //, height: UIScreen.main.bounds.size.height)
+
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(UIColor.lightGray))
@@ -61,6 +61,6 @@ struct ScheduleView: View {
 
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView().environmentObject(ScheduleVM())
+        ScheduleView().environmentObject(ScheduleStore())
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-class GameVM: ObservableObject {
+class GameStore: ObservableObject {
     private var gameLink: String
     @Published private var gameSummary: GameSummary?
     

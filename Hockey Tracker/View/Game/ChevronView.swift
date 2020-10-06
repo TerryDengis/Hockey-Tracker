@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ChevronView: View {
-    @EnvironmentObject var gameVM: GameVM
+    @EnvironmentObject var gameVM: GameStore
     var play: GameSummary.LiveData.Plays.Play
-    var scaleFactor: CGFloat
+    var displayWidth: CGFloat
     
     @State private var showPlayDetails = false
     
@@ -22,30 +22,30 @@ struct ChevronView: View {
         Image(systemName: gameVM.eventImageFor(play))
 
             .font(.system(size: chevronFont, weight:.bold))
-
             .foregroundColor(Color(gameVM.teamColorFor(play)))
             .onTapGesture {
-                self.showPlayDetails = true //.toggle()
+                self.showPlayDetails.toggle()
             }
             .popover(isPresented: $showPlayDetails) {
                 PlayDetailView(play:play).environmentObject(gameVM)
             }
-            //.transition(AnyTransition.opacity.animation(.easeInOut))
+
             .rotationEffect(.degrees(gameVM.isGoal(play) ? rotation : 0))
             .animation( Animation.linear(duration: 2).repeatForever(autoreverses: false))
             .scaleEffect(gameVM.isGoal(play) ? scale : 1.0)
             .animation( Animation.linear(duration: 2).repeatForever(autoreverses: true))
+//            .transition(AnyTransition.opacity.animation(.easeInOut(duration:5)))
             .onAppear {
                 self.rotation = 360
                 self.scale = 2.0
             }
-            .position(x: gameVM.xCoordinateFor(play) * scaleFactor, y: gameVM.yCoordinateFor(play) * scaleFactor)
+            .position(x: gameVM.xCoordinateFor(play) * (displayWidth / rinkWidth), y: gameVM.yCoordinateFor(play) * (displayWidth/rinkWidth))
     }
 
     var chevronFont: CGFloat {
-        if scaleFactor < 3.0 {
+        if displayWidth/rinkWidth < 3.0 {
             return 10
-        } else if scaleFactor < 4.10 {
+        } else if displayWidth/rinkWidth < 4.10 {
             return 15
         } else {
             return 20

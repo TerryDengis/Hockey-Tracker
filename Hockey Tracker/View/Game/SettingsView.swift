@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var gameVM: GameVM
+    @EnvironmentObject var gameVM: GameStore
     
     @State private var goals: Bool = true
     @State private var shots: Bool = false
@@ -61,7 +61,7 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        let vm = GameVM()
+        let vm = GameStore()
         vm.setUrl( domainUrl + "/api/v1/game/2019021011/feed/live")
         
         return SettingsView().environmentObject(vm)

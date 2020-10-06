@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct DateSelectionView: View {
-    @EnvironmentObject var scheduleVM: ScheduleVM
+    @EnvironmentObject var scheduleStore: ScheduleStore
     //@State private var currentDate: Date = Date()
     
     var body: some View {
-        let dateRange = scheduleVM.scheduleDate.getDateRange(firstDay: -30, lastDay: 30)
+        let dateRange = scheduleStore.scheduleDate.getDateRange(firstDay: -30, lastDay: 30)
 
         HStack {
             ScrollView(.horizontal) {
@@ -23,16 +23,16 @@ struct DateSelectionView: View {
                                 Text(dateRange[index].isToday() ? "Today" : dateRange[index].convertToString(dateformat: .shortDate))
                                     .bold()
                                     .frame(width: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .border(dateRange[index] == scheduleVM.scheduleDate ? Color.yellow : Color.black, width: 2)
-                                    .foregroundColor(dateRange[index] == scheduleVM.scheduleDate ? .white : .gray)
-                                    .saturation(dateRange[index] == scheduleVM.scheduleDate ? 1.0 : 0.0)
+                                    .border(dateRange[index] == scheduleStore.scheduleDate ? Color.yellow : Color.black, width: 2)
+                                    .foregroundColor(dateRange[index] == scheduleStore.scheduleDate ? .white : .gray)
+                                    .saturation(dateRange[index] == scheduleStore.scheduleDate ? 1.0 : 0.0)
                                     .font(.body)
                                     .id(index)
                                     .onTapGesture {
                                         withAnimation {
-                                            self.scheduleVM.setDate(dateRange[index])
+                                            self.scheduleStore.setDate(dateRange[index])
                                             value.scrollTo(30, anchor: .center)
-                                            scheduleVM.setDate(dateRange[index])
+                                            scheduleStore.setDate(dateRange[index])
                                         }
                                     }
                                     .onAppear {
@@ -45,7 +45,6 @@ struct DateSelectionView: View {
             } // ScrollView
             
         } // HStack
-        .frame(width: UIScreen.main.bounds.size.width)
         .background(Color.black)
     }
 }

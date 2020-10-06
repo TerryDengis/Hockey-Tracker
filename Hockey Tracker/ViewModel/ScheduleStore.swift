@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ScheduleVM: ObservableObject {
+class ScheduleStore: ObservableObject {
     @Published private var schedule: Schedule?
     private (set) var scheduleDate = Date()
 

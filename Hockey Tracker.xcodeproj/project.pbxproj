@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		FE1BFC62251BB22600D22073 /* DateSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BFC61251BB22600D22073 /* DateSelectionView.swift */; };
-		FE1BFC65251BE02400D22073 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BFC64251BE02400D22073 /* Extension+Date.swift */; };
+		FE1BFC65251BE02400D22073 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BFC64251BE02400D22073 /* Date+Extension.swift */; };
 		FE1BFC6C251C31C700D22073 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BFC6B251C31C700D22073 /* GameListView.swift */; };
 		FE1BFC6F251C3CC900D22073 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1BFC6E251C3CC900D22073 /* SettingsView.swift */; };
 		FE2E51C12516BCA500EF10CE /* SummaryShotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51C02516BCA500EF10CE /* SummaryShotsView.swift */; };
 		FE2E51C52516D7AE00EF10CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51C42516D7AE00EF10CE /* Constants.swift */; };
-		FE2E51C82516D83400EF10CE /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51C72516D83400EF10CE /* Extension+UIColor.swift */; };
-		FE2E51D22516EB2400EF10CE /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51D12516EB2400EF10CE /* GameVM.swift */; };
-		FE2E51D52516EB3B00EF10CE /* ScheduleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51D42516EB3B00EF10CE /* ScheduleVM.swift */; };
+		FE2E51C82516D83400EF10CE /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51C72516D83400EF10CE /* UIColor+Extension.swift */; };
+		FE2E51D22516EB2400EF10CE /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51D12516EB2400EF10CE /* GameStore.swift */; };
+		FE2E51D52516EB3B00EF10CE /* ScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51D42516EB3B00EF10CE /* ScheduleStore.swift */; };
 		FE2E51DA2516EBC200EF10CE /* DrawingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51D92516EBC200EF10CE /* DrawingConstants.swift */; };
 		FE2E51DD2516EDB100EF10CE /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E51DC2516EDB100EF10CE /* ChevronView.swift */; };
 		FE3861B8251A3AD1009E5F94 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3861B7251A3AD1009E5F94 /* ScheduleView.swift */; };
@@ -37,14 +37,14 @@
 
 /* Begin PBXFileReference section */
 		FE1BFC61251BB22600D22073 /* DateSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionView.swift; sourceTree = "<group>"; };
-		FE1BFC64251BE02400D22073 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
+		FE1BFC64251BE02400D22073 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		FE1BFC6B251C31C700D22073 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
 		FE1BFC6E251C3CC900D22073 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FE2E51C02516BCA500EF10CE /* SummaryShotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryShotsView.swift; sourceTree = "<group>"; };
 		FE2E51C42516D7AE00EF10CE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FE2E51C72516D83400EF10CE /* Extension+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
-		FE2E51D12516EB2400EF10CE /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
-		FE2E51D42516EB3B00EF10CE /* ScheduleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVM.swift; sourceTree = "<group>"; };
+		FE2E51C72516D83400EF10CE /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		FE2E51D12516EB2400EF10CE /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
+		FE2E51D42516EB3B00EF10CE /* ScheduleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStore.swift; sourceTree = "<group>"; };
 		FE2E51D92516EBC200EF10CE /* DrawingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingConstants.swift; sourceTree = "<group>"; };
 		FE2E51DC2516EDB100EF10CE /* ChevronView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
 		FE3861B7251A3AD1009E5F94 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 		FE2E51CD2516EA7900EF10CE /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				FE2E51C72516D83400EF10CE /* Extension+UIColor.swift */,
-				FE1BFC64251BE02400D22073 /* Extension+Date.swift */,
+				FE2E51C72516D83400EF10CE /* UIColor+Extension.swift */,
+				FE1BFC64251BE02400D22073 /* Date+Extension.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -100,8 +100,8 @@
 		FE2E51CF2516EAA100EF10CE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FE2E51D12516EB2400EF10CE /* GameVM.swift */,
-				FE2E51D42516EB3B00EF10CE /* ScheduleVM.swift */,
+				FE2E51D12516EB2400EF10CE /* GameStore.swift */,
+				FE2E51D42516EB3B00EF10CE /* ScheduleStore.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -257,23 +257,23 @@
 				FEB1E3D02516F9C300951D10 /* LineScore.swift in Sources */,
 				FEDFA52D25226BC6003EE9BE /* PlayDetailView.swift in Sources */,
 				FE428FD825128079005BB4CC /* RinkView.swift in Sources */,
-				FE2E51D22516EB2400EF10CE /* GameVM.swift in Sources */,
+				FE2E51D22516EB2400EF10CE /* GameStore.swift in Sources */,
 				FEF727362513C74C00713CFE /* PeriodView.swift in Sources */,
 				FEB1E3DD2516FB3000951D10 /* Model Enums.swift in Sources */,
 				FE428FD625128079005BB4CC /* Hockey_TrackerApp.swift in Sources */,
 				FEB1E3D82516FA3D00951D10 /* Schedule.swift in Sources */,
 				FE2E51DD2516EDB100EF10CE /* ChevronView.swift in Sources */,
-				FE2E51C82516D83400EF10CE /* Extension+UIColor.swift in Sources */,
+				FE2E51C82516D83400EF10CE /* UIColor+Extension.swift in Sources */,
 				FE1BFC6C251C31C700D22073 /* GameListView.swift in Sources */,
 				FEB1E3CC2516F8F500951D10 /* GameSummary.swift in Sources */,
 				FEE83DA82513188300ECCB54 /* SummaryGoalView.swift in Sources */,
-				FE1BFC65251BE02400D22073 /* Extension+Date.swift in Sources */,
+				FE1BFC65251BE02400D22073 /* Date+Extension.swift in Sources */,
 				FE2E51C52516D7AE00EF10CE /* Constants.swift in Sources */,
 				FE1BFC62251BB22600D22073 /* DateSelectionView.swift in Sources */,
 				FEB1E3E02516FD6D00951D10 /* Generated.swift in Sources */,
 				FE2E51DA2516EBC200EF10CE /* DrawingConstants.swift in Sources */,
 				FEF727382513C78E00713CFE /* ScoreView.swift in Sources */,
-				FE2E51D52516EB3B00EF10CE /* ScheduleVM.swift in Sources */,
+				FE2E51D52516EB3B00EF10CE /* ScheduleStore.swift in Sources */,
 				FE2E51C12516BCA500EF10CE /* SummaryShotsView.swift in Sources */,
 				FE3861B8251A3AD1009E5F94 /* ScheduleView.swift in Sources */,
 			);

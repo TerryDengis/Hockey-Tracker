@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameListView: View {
-    @EnvironmentObject var scheduleVM: ScheduleVM
+    @EnvironmentObject var scheduleVM: ScheduleStore
     
     init() {
         UITableView.appearance().backgroundColor = .lightGray
@@ -21,7 +21,7 @@ struct GameListView: View {
             List(gamesList, id: \.gamePk) { game in
 
                 NavigationLink (
-                    destination: RinkView(gameVM: GameVM(gameLink: domainUrl + scheduleVM.linkFor(game))),
+                    destination: RinkView(gameStore: GameStore(gameLink: domainUrl + scheduleVM.linkFor(game))),
                     label: {
                         ScoreView(game: game).environmentObject(scheduleVM)
                     })
@@ -35,7 +35,7 @@ struct GameListView: View {
 
 struct GameListView_Previews: PreviewProvider {
     static var previews: some View {
-        let vm = ScheduleVM()
+        let vm = ScheduleStore()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.date(from:"2020-08-30")!
