@@ -13,7 +13,8 @@ struct ScheduleView: View {
     @State private var selectedDate = Date()
 
     init() {
-        UITableView.appearance().backgroundColor = .lightGray
+        //UITableView.appearance().backgroundColor = .lightGray
+        //UITableView.appearance().separatorColor = .black
     }
     
     var body: some View {
@@ -28,10 +29,9 @@ struct ScheduleView: View {
                         GameListView().environmentObject(scheduleVM)
                             .ignoresSafeArea()
                     }
-                    Spacer()
                 } // VStack
                 .navigationBarTitle("NHL Schedule", displayMode: .inline)
-                .background(Color(UIColor.lightGray))
+
                 .navigationBarItems (
                     trailing:
                         Image(systemName: "calendar")
@@ -49,13 +49,11 @@ struct ScheduleView: View {
                                 }
                         }
                 )
+                .background(Color(UIColor.lightGray))
+                .edgesIgnoringSafeArea([.bottom, .leading, .trailing])
             }
             .navigationViewStyle(StackNavigationViewStyle())
-
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(UIColor.lightGray))
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 

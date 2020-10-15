@@ -37,7 +37,9 @@ struct RinkView: View {
                     let plays = gameStore.playsForPeriod(currentPeriod)
                     ForEach(plays, id: \.id) { play in
                         ChevronView(play: play, displayWidth: geometry.size.width).environmentObject(gameStore)
+                            
                     }
+                    .zIndex(1)
                 }
                 HStack {
                     SummaryShotsView().environmentObject(gameStore)
@@ -85,8 +87,8 @@ struct RinkView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        //Group {
             RinkView(gameStore: GameStore(gameLink: domainUrl + "/api/v1/game/2019021011/feed/live"))
-        }
+        //}
     }
 }

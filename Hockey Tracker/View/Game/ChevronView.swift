@@ -16,30 +16,32 @@ struct ChevronView: View {
     
     @State private var rotation = 0.0
     @State private var scale: CGFloat = 1.0
-    
+
     var body: some View {
-
-        Image(systemName: gameVM.eventImageFor(play))
-
-            .font(.system(size: chevronFont, weight:.bold))
-            .foregroundColor(Color(gameVM.teamColorFor(play)))
-            .onTapGesture {
-                self.showPlayDetails.toggle()
-            }
-            .popover(isPresented: $showPlayDetails) {
-                PlayDetailView(play:play).environmentObject(gameVM)
-            }
-
-            .rotationEffect(.degrees(gameVM.isGoal(play) ? rotation : 0))
-            .animation( Animation.linear(duration: 2).repeatForever(autoreverses: false))
-            .scaleEffect(gameVM.isGoal(play) ? scale : 1.0)
-            .animation( Animation.linear(duration: 2).repeatForever(autoreverses: true))
-//            .transition(AnyTransition.opacity.animation(.easeInOut(duration:5)))
-            .onAppear {
-                self.rotation = 360
-                self.scale = 2.0
-            }
-            .position(x: gameVM.xCoordinateFor(play) * (displayWidth / rinkWidth), y: gameVM.yCoordinateFor(play) * (displayWidth/rinkWidth))
+        VStack {
+            Image(systemName: gameVM.eventImageFor(play))
+                .font(.system(size: chevronFont, weight:.bold))
+                .foregroundColor(Color(gameVM.teamColorFor(play)))
+                .onTapGesture {
+                    self.showPlayDetails.toggle()
+                }
+                .popover(isPresented: $showPlayDetails) {
+                    PlayDetailView(play:play).environmentObject(gameVM)
+                }
+                //.rotationEffect(.degrees(gameVM.isGoal(play) ? rotation : 0))
+                //.animation( Animation.linear(duration: 2).repeatForever(autoreverses: false))
+                //.scaleEffect(gameVM.isGoal(play) ? scale : 1.0)
+                //.animation( Animation.linear(duration: 2).repeatForever(autoreverses: true))
+                //.onAppear {
+                //   self.rotation = 360
+                //    self.scale = 1.5
+                //}
+                .position(x: gameVM.xCoordinateFor(play) * (displayWidth / rinkWidth), y: gameVM.yCoordinateFor(play) * (displayWidth/rinkWidth))
+        }
+        .transition(AnyTransition.asymmetric(
+            insertion: .slide,
+            removal: .slide))
+        .animation(.easeInOut(duration: 1))
     }
 
     var chevronFont: CGFloat {
