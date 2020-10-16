@@ -61,12 +61,13 @@ struct GameSummary: Codable {
                 let name: String
             }
         }
+
     }
     
     // MARK: - LiveData
     struct LiveData: Codable {
         let plays: Plays
-        let linescore: LineScore?
+        let linescore: Linescore?
         
         struct Plays: Codable {
             let allPlays: [Play]
@@ -78,7 +79,6 @@ struct GameSummary: Codable {
                 let about: About
                 
                 struct About: Codable {
-                    
                     let period: Int
                     let periodType: String
                     let ordinalNum: String
@@ -93,16 +93,30 @@ struct GameSummary: Codable {
             }
             
             struct Play: Codable {
+                let players:[PlayersInvolved]?
                 let result: PlayResult
                 let about: About
                 let coordinates: Coordinates
                 let team: CurrentTeamClass?
+                
+                struct PlayersInvolved: Codable {
+                    let player: PlayerDetail
+                    let playerType: String
+                    let seasonTotal: Int?
+                    
+                    struct PlayerDetail: Codable, Identifiable {
+                        var id: Int
+                        let fullName: String
+                        let link: String
+                    }
+                }
                 
                 struct Coordinates: Codable {
                     let x, y: Int?
                 }
                 
                 struct PlayResult: Codable {
+                    let event: String
                     let eventCode: String
                     let eventTypeId: EventType
                     let description: String

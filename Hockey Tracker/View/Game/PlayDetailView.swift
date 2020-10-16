@@ -14,28 +14,48 @@ struct PlayDetailView: View {
     var body: some View {
         VStack {
             Text(play.team!.name)
-                .font(.largeTitle)
-            Spacer()
+                .font(.title)
+                .foregroundColor(Color(gameVM.teamColor((play.team?.triCode) ?? .Calgary)))
+            Text(play.result.event)
+                .font(.title2)
+            let playersInvolved = gameVM.playersInvolvedIn(play)
+            HStack {
+                ForEach(playersInvolved, id:\.id) { player in
+                    VStack {
+                        Image("Silhouette")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(minWidth: 50, maxWidth: 100, minHeight: 50, maxHeight: 100)
+                        Text(player.fullName)
+                            .font(.body)
+                        Text(player.link)
+                    }
+                    .padding()
+                }
+            }
+            
             Text(play.result.description)
-                .font(.body)
-                .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                .font(.title2)
+                .lineLimit(4)
                 .multilineTextAlignment(.center)
-            Spacer ()
+            
             Text("\(play.about.ordinalNum) \(play.about.period <= 3 ? "Period" :"") @ \(play.about.periodTime)")
                 .font(.title)
         }
-        .foregroundColor(.primary)
         .padding()
+        .foregroundColor(.primary)
+        .background(Color.secondary)
+
     }
 }
 
-//struct PlayDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let gameStore = GameStore(gameLink: domainUrl + "/api/v1/game/2019021011/feed/live")
-//        let plays = gameStore.playsForPeriod(1)
-//        let play = plays[10]
-//
-//        return PlayDetailView(play: play).environmentObject(gameStore)
-//    }
-//}
+struct PlayDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        let gameStore = GameStore(gameLink: domainUrl + "/api/v1/game/2019021011/feed/live")
+        let plays = gameStore.playsForPeriod(1)
+        let play = plays[95]
+
+        return PlayDetailView(play: play).environmentObject(gameStore)
+    }
+}
 

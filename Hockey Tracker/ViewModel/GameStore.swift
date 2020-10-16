@@ -107,6 +107,7 @@ class GameStore: ObservableObject {
         return 0.0
     }
     
+
     func playsForPeriod(_ period: Int) -> [GameSummary.LiveData.Plays.Play] {
         var plays = [GameSummary.LiveData.Plays.Play]()
         
@@ -129,6 +130,18 @@ class GameStore: ObservableObject {
         
         return plays
     }
+    
+    func playersInvolvedIn(_ play: GameSummary.LiveData.Plays.Play) -> [GameSummary.LiveData.Plays.Play.PlayersInvolved.PlayerDetail] {
+        var players = [GameSummary.LiveData.Plays.Play.PlayersInvolved.PlayerDetail] ()
+        if let involvedPlayers = play.players {
+            for index in 0..<involvedPlayers.count {
+                players.append(involvedPlayers[index].player)
+            }
+        }
+        
+        return players
+    }
+    
     func  isGoal(_ play: GameSummary.LiveData.Plays.Play) -> Bool {
         if play.result.eventTypeId == .goal {
             return true
@@ -142,7 +155,7 @@ class GameStore: ObservableObject {
         return false
     }
     
-    var periods: [LineScore.Period]? {
+    var periods: [Linescore.Period]? {
         if let periods = gameSummary?.liveData.linescore?.periods {
             return periods
         }
@@ -259,7 +272,7 @@ class GameStore: ObservableObject {
         return "Scheduled"
     }
         
-    private func teamColor (_ team: TeamCode) -> UIColor {
+    func teamColor (_ team: TeamCode) -> UIColor {
         switch team {
         case .Anaheim:
             return UIColor(hexString: anaheim)

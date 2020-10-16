@@ -37,7 +37,6 @@ struct RinkView: View {
                     let plays = gameStore.playsForPeriod(currentPeriod)
                     ForEach(plays, id: \.id) { play in
                         ChevronView(play: play, displayWidth: geometry.size.width).environmentObject(gameStore)
-                            
                     }
                     .zIndex(1)
                 }

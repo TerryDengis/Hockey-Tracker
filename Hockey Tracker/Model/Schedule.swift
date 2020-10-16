@@ -9,7 +9,7 @@
 import Foundation
 
 struct Schedule: Codable {
-    //let copyright: String
+    let copyright: String
     let totalItems: Int
     let totalEvents: Int
     let totalGames: Int
@@ -19,8 +19,13 @@ struct Schedule: Codable {
     
     struct Games: Codable {
         let date: String
-        let totalItems, totalEvents, totalGames, totalMatches: Int
+        let totalItems: Int
+        let totalEvents: Int
+        let totalGames: Int
+        let totalMatches: Int
         let games: [GameDetail]
+        //let events: [????]
+        //matches: [????]
         
         struct GameDetail: Codable {
             let gamePk: Int
@@ -30,18 +35,12 @@ struct Schedule: Codable {
             let gameDate: String
             let status: Status
             let teams: Teams
-            let linescore: LineScore
+            // MARK: - defined in LineScore.swift
+            let linescore: Linescore
+            let venue: Venue
+            let content: Content
             
-            struct Teams: Codable {
-                let away: TeamInfo
-                let home: TeamInfo
-            }
-            struct TeamInfo: Codable {
-                let score: Int
-                let team: TeamID
-            }
             struct Status: Codable {
-                
                 let abstractGameState: String
                 let codedGameState: String
                 let detailedState: String
@@ -49,9 +48,37 @@ struct Schedule: Codable {
                 let startTimeTBD: Bool
             }
             
+            struct Teams: Codable {
+                let away: TeamInfo
+                let home: TeamInfo
+            }
+            
+            struct TeamInfo: Codable {
+                let leagueRecord: LeagueRecord
+                let score: Int
+                let team: TeamID
+            }
+
+            struct LeagueRecord: Codable {
+                let wins: Int
+                let losses: Int
+                let ot: Int
+                let type: String
+            }
+            
             struct TeamID: Codable {
                 let id: Int
                 let name: String
+                let link: String
+            }
+            
+            struct Venue: Codable {
+                let id: Int?
+                let name: String
+                let link: String
+            }
+            
+            struct Content: Codable {
                 let link: String
             }
         }

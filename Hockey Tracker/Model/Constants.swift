@@ -13,7 +13,4 @@ let lineScoreUrl = domainUrl + "/api/v1/game/"
 let lineScoreSuffix = "/linescore"
 let scheduleSuffix="&expand=schedule.linescore"
 
-// MARK: - for testing
-let fetchScheduleUrl = "https://statsapi.web.nhl.com/api/v1/schedule?date=2020-09-23"
-
 let shotsAvailable = "2010-10-07"

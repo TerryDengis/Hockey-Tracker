@@ -6,7 +6,7 @@
 //
 import Foundation
 
-struct LineScore: Codable {
+struct Linescore: Codable {
     let currentPeriod: Int
     let currentPeriodOrdinal : String?
     let currentPeriodTimeRemaining: String?
@@ -15,10 +15,10 @@ struct LineScore: Codable {
     let teams: Teams
     let powerPlayStrength: String
     let hasShootout: Bool
+    let intermissionInfo: IntermissionInfo?
     let powerPlayInfo: PowerPlayInfo?
     
     struct Period: Codable, Identifiable {
-        
         var id: Int
         let periodType: String
         let startTime: String?
@@ -36,26 +36,22 @@ struct LineScore: Codable {
             let goals: Int
             let shotsOnGoal: Int
             let rinkSide: String?
-            
         }
     }
     
-    struct PowerPlayInfo: Codable {
-        let situationTimeRemaining: Int
-        let situationTimeElapsed: Int
-        let inSituation: Bool
-    }
-    
     struct Shootout: Codable {
-        let away, home: ShootoutInfo
+        let away: ShootoutInfo
+        let home: ShootoutInfo
         
         struct ShootoutInfo: Codable {
-            let scores, attempts: Int
+            let scores: Int
+            let attempts: Int
         }
     }
     
     struct Teams: Codable {
-        let home, away: Team
+        let home: Team
+        let away: Team
         
         struct Team: Codable {
             let team: TeamID
@@ -71,5 +67,17 @@ struct LineScore: Codable {
                 let link: String
             }
         }
+    }
+    
+    struct IntermissionInfo: Codable {
+        let intermissionTimeRemaining: Int
+        let intermissionTimeElapsed: Int
+        let inIntermission: Bool
+    }
+    
+    struct PowerPlayInfo: Codable {
+        let situationTimeRemaining: Int
+        let situationTimeElapsed: Int
+        let inSituation: Bool
     }
 }
