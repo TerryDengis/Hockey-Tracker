@@ -13,9 +13,9 @@ class ScheduleStore: ObservableObject {
 
     init() {
         let formatter = DateFormatter()
-        // TODO: - Fix it
-        formatter.dateFormat = "yyyy/MM/dd"
-        scheduleDate = formatter.date(from: "2020/02/25")!
+        // TODO: - Hard coding for testing
+        formatter.dateFormat = "yyyy-MM-dd"
+        scheduleDate = formatter.date(from: "2020-02-25")!
         fetchScheduleData()
     }
     

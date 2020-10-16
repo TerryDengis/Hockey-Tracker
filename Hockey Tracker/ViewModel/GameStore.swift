@@ -123,6 +123,9 @@ class GameStore: ObservableObject {
                         allPlays![index].result.eventTypeId == EventType.blockedShot && showBlockedShots! ||
                         allPlays![index].result.eventTypeId == EventType.missedShot && showMissedShots! {
                         plays.append(allPlays![index])
+                        if allPlays![index].result.eventTypeId == EventType.goal {
+                            print (allPlays![index].coordinates)
+                        }
                     }
                 }
             }

@@ -24,7 +24,7 @@
 		FE428FDA2512807A005BB4CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE428FD92512807A005BB4CC /* Assets.xcassets */; };
 		FE428FDD2512807A005BB4CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE428FDC2512807A005BB4CC /* Preview Assets.xcassets */; };
 		FEB1E3CC2516F8F500951D10 /* GameSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3CB2516F8F500951D10 /* GameSummary.swift */; };
-		FEB1E3D02516F9C300951D10 /* Linescore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3CF2516F9C300951D10 /* Linescore.swift */; };
+		FEB1E3D02516F9C300951D10 /* LineScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3CF2516F9C300951D10 /* LineScore.swift */; };
 		FEB1E3D52516FA2700951D10 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3D42516FA2700951D10 /* Teams.swift */; };
 		FEB1E3D82516FA3D00951D10 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3D72516FA3D00951D10 /* Schedule.swift */; };
 		FEB1E3DD2516FB3000951D10 /* Model Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3DC2516FB3000951D10 /* Model Enums.swift */; };
@@ -57,7 +57,7 @@
 		FE428FDC2512807A005BB4CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FE428FDE2512807A005BB4CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEB1E3CB2516F8F500951D10 /* GameSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSummary.swift; sourceTree = "<group>"; };
-		FEB1E3CF2516F9C300951D10 /* Linescore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Linescore.swift; sourceTree = "<group>"; };
+		FEB1E3CF2516F9C300951D10 /* LineScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineScore.swift; sourceTree = "<group>"; };
 		FEB1E3D42516FA2700951D10 /* Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		FEB1E3D72516FA3D00951D10 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		FEB1E3DC2516FB3000951D10 /* Model Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model Enums.swift"; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 				FE2E51C42516D7AE00EF10CE /* Constants.swift */,
 				FEB1E3CB2516F8F500951D10 /* GameSummary.swift */,
 				FEB1E3D72516FA3D00951D10 /* Schedule.swift */,
-				FEB1E3CF2516F9C300951D10 /* Linescore.swift */,
+				FEB1E3CF2516F9C300951D10 /* LineScore.swift */,
 				FEB1E3D42516FA2700951D10 /* Teams.swift */,
 				FEB1E3DC2516FB3000951D10 /* Model Enums.swift */,
 				FEB1E3DF2516FD6D00951D10 /* Generated.swift */,
@@ -262,7 +262,7 @@
 				FEBAA5422538E312001240CD /* PopUpView.swift in Sources */,
 				FEBAA53E2538CC12001240CD /* DatePickerView.swift in Sources */,
 				FE1BFC6F251C3CC900D22073 /* SettingsView.swift in Sources */,
-				FEB1E3D02516F9C300951D10 /* Linescore.swift in Sources */,
+				FEB1E3D02516F9C300951D10 /* LineScore.swift in Sources */,
 				FEDFA52D25226BC6003EE9BE /* PlayDetailView.swift in Sources */,
 				FE428FD825128079005BB4CC /* RinkView.swift in Sources */,
 				FE2E51D22516EB2400EF10CE /* GameStore.swift in Sources */,

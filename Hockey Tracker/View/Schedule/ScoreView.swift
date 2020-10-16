@@ -17,7 +17,7 @@ struct ScoreView: View {
                 Image(scheduleVM.awayTeamNameFor(game))
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 30, height: 30)
+                    .frame(width: 40, height: 40)
                 Text (scheduleVM.awayTeamNameFor(game))
                 Text ("\(scheduleVM.awayTeamScoreFor(game))")
             }
@@ -31,11 +31,12 @@ struct ScoreView: View {
                 Image(scheduleVM.homeTeamNameFor(game))
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 30, height: 30)
+                    .frame(width: 40, height: 40)
                 Text (scheduleVM.homeTeamNameFor(game))
                 Text ("\(scheduleVM.homeTeamScoreFor(game))")
             }
         }
+        .font(.title2)
     }
 }
 
