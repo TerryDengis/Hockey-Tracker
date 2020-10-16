@@ -18,6 +18,8 @@ struct PlayDetailView: View {
             Spacer()
             Text(play.result.description)
                 .font(.body)
+                .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                .multilineTextAlignment(.center)
             Spacer ()
             Text("\(play.about.ordinalNum) \(play.about.period <= 3 ? "Period" :"") @ \(play.about.periodTime)")
                 .font(.title)
@@ -29,6 +31,11 @@ struct PlayDetailView: View {
 
 //struct PlayDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        PlayDetailView()
+//        let gameStore = GameStore(gameLink: domainUrl + "/api/v1/game/2019021011/feed/live")
+//        let plays = gameStore.playsForPeriod(1)
+//        let play = plays[10]
+//
+//        return PlayDetailView(play: play).environmentObject(gameStore)
 //    }
 //}
+

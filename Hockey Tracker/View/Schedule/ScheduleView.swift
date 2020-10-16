@@ -11,11 +11,6 @@ struct ScheduleView: View {
     @EnvironmentObject var scheduleVM: ScheduleStore
     @State private var showDatePicker = false
     @State private var selectedDate = Date()
-
-    init() {
-        //UITableView.appearance().backgroundColor = .lightGray
-        //UITableView.appearance().separatorColor = .black
-    }
     
     var body: some View {
         VStack {
@@ -25,13 +20,12 @@ struct ScheduleView: View {
                     if scheduleVM.games.count == 0 {
                         Text("No Games Scheduled")
                             .font(.largeTitle)
+                        Spacer()
                     } else {
                         GameListView().environmentObject(scheduleVM)
-                            .ignoresSafeArea()
                     }
                 } // VStack
                 .navigationBarTitle("NHL Schedule", displayMode: .inline)
-
                 .navigationBarItems (
                     trailing:
                         Image(systemName: "calendar")
@@ -41,16 +35,11 @@ struct ScheduleView: View {
                             self.showDatePicker.toggle()
                         }
                         .popover(isPresented: $showDatePicker) {
-                            DatePicker("Games Date", selection: $selectedDate, displayedComponents: .date)
-                                .datePickerStyle(GraphicalDatePickerStyle())
+                            DatePickerView().environmentObject(scheduleVM)
                                 .frame(width:300, height:400)
-                                .onDisappear {
-                                    scheduleVM.setDate(selectedDate)
-                                }
                         }
                 )
-                .background(Color(UIColor.lightGray))
-                .edgesIgnoringSafeArea([.bottom, .leading, .trailing])
+                .background(Color(UIColor.systemGray))
             }
             .navigationViewStyle(StackNavigationViewStyle())
         }

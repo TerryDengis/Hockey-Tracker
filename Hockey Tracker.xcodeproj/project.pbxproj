@@ -29,6 +29,8 @@
 		FEB1E3D82516FA3D00951D10 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3D72516FA3D00951D10 /* Schedule.swift */; };
 		FEB1E3DD2516FB3000951D10 /* Model Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3DC2516FB3000951D10 /* Model Enums.swift */; };
 		FEB1E3E02516FD6D00951D10 /* Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3DF2516FD6D00951D10 /* Generated.swift */; };
+		FEBAA53E2538CC12001240CD /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBAA53D2538CC12001240CD /* DatePickerView.swift */; };
+		FEBAA5422538E312001240CD /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBAA5412538E312001240CD /* PopUpView.swift */; };
 		FEDFA52D25226BC6003EE9BE /* PlayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA52C25226BC6003EE9BE /* PlayDetailView.swift */; };
 		FEE83DA82513188300ECCB54 /* SummaryGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE83DA72513188300ECCB54 /* SummaryGoalView.swift */; };
 		FEF727362513C74C00713CFE /* PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF727352513C74C00713CFE /* PeriodView.swift */; };
@@ -60,6 +62,8 @@
 		FEB1E3D72516FA3D00951D10 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		FEB1E3DC2516FB3000951D10 /* Model Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model Enums.swift"; sourceTree = "<group>"; };
 		FEB1E3DF2516FD6D00951D10 /* Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generated.swift; sourceTree = "<group>"; };
+		FEBAA53D2538CC12001240CD /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		FEBAA5412538E312001240CD /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		FEDFA52C25226BC6003EE9BE /* PlayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayDetailView.swift; sourceTree = "<group>"; };
 		FEE83DA72513188300ECCB54 /* SummaryGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryGoalView.swift; sourceTree = "<group>"; };
 		FEF727352513C74C00713CFE /* PeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodView.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				FE2E51DC2516EDB100EF10CE /* ChevronView.swift */,
 				FE1BFC6E251C3CC900D22073 /* SettingsView.swift */,
 				FEDFA52C25226BC6003EE9BE /* PlayDetailView.swift */,
+				FEBAA5412538E312001240CD /* PopUpView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				FE3861B7251A3AD1009E5F94 /* ScheduleView.swift */,
 				FE1BFC6B251C31C700D22073 /* GameListView.swift */,
 				FEF727372513C78E00713CFE /* ScoreView.swift */,
+				FEBAA53D2538CC12001240CD /* DatePickerView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -253,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEB1E3D52516FA2700951D10 /* Teams.swift in Sources */,
+				FEBAA5422538E312001240CD /* PopUpView.swift in Sources */,
+				FEBAA53E2538CC12001240CD /* DatePickerView.swift in Sources */,
 				FE1BFC6F251C3CC900D22073 /* SettingsView.swift in Sources */,
 				FEB1E3D02516F9C300951D10 /* LineScore.swift in Sources */,
 				FEDFA52D25226BC6003EE9BE /* PlayDetailView.swift in Sources */,

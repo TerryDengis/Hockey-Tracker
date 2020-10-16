@@ -15,7 +15,7 @@ class ScheduleStore: ObservableObject {
         let formatter = DateFormatter()
         // TODO: - Fix it
         formatter.dateFormat = "yyyy/MM/dd"
-        scheduleDate = formatter.date(from: "2020/08/30")!
+        scheduleDate = formatter.date(from: "2020/02/25")!
         fetchScheduleData()
     }
     
@@ -77,13 +77,12 @@ class ScheduleStore: ObservableObject {
     func indexOf (_ game: Schedule.Games.GameDetail) -> Int {
         for index in 0..<games.count {
             if games[index].gamePk == game.gamePk {
-                print (index)
                 return index
             }
         }
-        
         return -1
     }
+    
     func linkFor (_ game: Schedule.Games.GameDetail) -> String {
         game.link
     }

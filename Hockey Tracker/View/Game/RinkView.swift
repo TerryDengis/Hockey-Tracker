@@ -50,7 +50,6 @@ struct RinkView: View {
                 
                 Spacer()
             } // ScrollView
-            
             .navigationBarTitle(Text ("\(gameStore.awayTeam) \(gameStore.awayScore) at \(gameStore.homeTeam) \(gameStore.homeScore) \(gameStore.gameStatus)"))
             .navigationBarItems (
                 trailing:
@@ -62,6 +61,7 @@ struct RinkView: View {
                     }
                     .popover(isPresented: $showSettings) {
                         SettingsView().environmentObject(gameStore)
+                            .frame(width: 350, height: 300)
                     }
             )
             .background(Color.init(UIColor.lightGray))
@@ -87,8 +87,8 @@ struct RinkView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        //Group {
+        Group {
             RinkView(gameStore: GameStore(gameLink: domainUrl + "/api/v1/game/2019021011/feed/live"))
-        //}
+        }
     }
 }

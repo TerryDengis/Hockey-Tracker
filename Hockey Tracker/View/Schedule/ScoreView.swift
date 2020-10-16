@@ -24,6 +24,8 @@ struct ScoreView: View {
             HStack {
                 Spacer()
                 Text (scheduleVM.gameStatus(for: game))
+                Image(systemName: "chevron.right")
+                    .padding(.leading)
             }
             HStack {
                 Image(scheduleVM.homeTeamNameFor(game))
@@ -37,8 +39,17 @@ struct ScoreView: View {
     }
 }
 
-//struct ScoreView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ScoreView()
-//    }
-//}
+struct ScoreView_Previews: PreviewProvider {
+
+    static var previews: some View {
+        let vm = ScheduleStore()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from:"2020-08-30")!
+        vm.setDate(date)
+        let game = vm.games[0]
+        
+        return ScoreView(game: game).environmentObject(vm)
+    }
+}
+

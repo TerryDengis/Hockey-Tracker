@@ -11,32 +11,22 @@ import UIKit
 struct GameListView: View {
     @EnvironmentObject var scheduleVM: ScheduleStore
     
-    init() {
-        UITableView.appearance().backgroundColor = .lightGray
-        UITableViewCell.appearance().selectionStyle = .none
-        UITableView.appearance().separatorStyle = .singleLine
-        UITableView.appearance().separatorColor = .black
-    }
-    
     var body: some View {
         let gamesList = scheduleVM.games
-        
-        
-        // TODO: - needs to be in a form to color the background
-        Form {
-            List(gamesList, id: \.gamePk) { game in
-                NavigationLink (
-                    destination: RinkView(gameStore: GameStore(gameLink: domainUrl + scheduleVM.linkFor(game))),
-                    label: {
-                        ScoreView(game: game).environmentObject(scheduleVM)
-                            .padding()
-                    })
+        ScrollView {
+            LazyVStack(spacing: 1) {
+                ForEach(0..<gamesList.count, id:\.self) { index in
+                    NavigationLink (
+                        destination: RinkView(gameStore: GameStore(gameLink: domainUrl + scheduleVM.linkFor(gamesList[index]))),
+                        label: {
+                            ScoreView(game: gamesList[index]).environmentObject(scheduleVM)
+                                .padding(.horizontal, 5)
+                                .padding(.vertical, 2)
+                        })
+                        .background(scheduleVM.indexOf(gamesList[index]) % 2 == 0 ? Color(UIColor.systemGray2) : Color(UIColor.systemGray4))
+                }
             }
-            .listRowBackground(Color(UIColor.systemGray2))
-            //.listRowBackground(scheduleVM.indexOf(game!) % 2 == 0 ? Color(UIColor.lightGray) : Color.gray)
-            .listRowInsets(EdgeInsets(top: -1, leading: -1, bottom: -1, trailing: -1))
-
-        } // form
+        }
     }
 }
 
