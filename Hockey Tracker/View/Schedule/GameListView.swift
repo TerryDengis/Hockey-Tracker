@@ -19,11 +19,16 @@ struct GameListView: View {
                     NavigationLink (
                         destination: RinkView(gameStore: GameStore(gameLink: domainUrl + scheduleVM.linkFor(gamesList[index]))),
                         label: {
+                            VStack{
                             ScoreView(game: gamesList[index]).environmentObject(scheduleVM)
                                 .padding(.horizontal, 5)
                                 .padding(.vertical, 2)
+                                
+                            Divider()
+                                .background(Color("Secondary"))
+                            }
                         })
-                        .background(scheduleVM.indexOf(gamesList[index]) % 2 == 0 ? Color(UIColor.systemGray2) : Color(UIColor.systemGray4))
+                        .background(Color("Background"))
                 }
             }
         }

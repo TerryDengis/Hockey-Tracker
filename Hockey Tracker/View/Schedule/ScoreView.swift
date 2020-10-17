@@ -21,9 +21,11 @@ struct ScoreView: View {
                 Text (scheduleVM.awayTeamNameFor(game))
                 Text ("\(scheduleVM.awayTeamScoreFor(game))")
             }
+            .foregroundColor(Color("Primary"))
             HStack {
                 Spacer()
                 Text (scheduleVM.gameStatus(for: game))
+                    .foregroundColor(Color("Primary"))
                 Image(systemName: "chevron.right")
                     .padding(.leading)
             }
@@ -35,8 +37,9 @@ struct ScoreView: View {
                 Text (scheduleVM.homeTeamNameFor(game))
                 Text ("\(scheduleVM.homeTeamScoreFor(game))")
             }
+            .foregroundColor(Color("Primary"))
         }
-        .font(.title2)
+        .font(.body)
     }
 }
 

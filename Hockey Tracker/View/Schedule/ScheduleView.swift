@@ -12,17 +12,28 @@ struct ScheduleView: View {
     @State private var showDatePicker = false
     @State private var selectedDate = Date()
     
+    init() {
+        //UINavigationBar.appearance().backgroundColor = UIColor(hexString: "1E1E21")
+        UINavigationBar.appearance().backgroundColor = UIColor.blue
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor(hexString: "F8F8F9")]
+        UINavigationBar.appearance().titleTextAttributes = [
+            .foregroundColor: UIColor(hexString: "F8F8F9")]
+    }
+    
     var body: some View {
         VStack {
             NavigationView {
-                VStack {
+                VStack(spacing: 0) {
                     DateSelectionView().environmentObject(scheduleVM)
                     if scheduleVM.games.count == 0 {
                         Text("No Games Scheduled")
                             .font(.largeTitle)
+                            .foregroundColor(Color("Primary"))
                         Spacer()
                     } else {
                         GameListView().environmentObject(scheduleVM)
+
                     }
                 } // VStack
                 .navigationBarTitle("NHL Schedule", displayMode: .inline)
@@ -39,10 +50,12 @@ struct ScheduleView: View {
                                 .frame(width:300, height:400)
                         }
                 )
-                .background(Color(UIColor.systemGray))
+                
             }
             .navigationViewStyle(StackNavigationViewStyle())
         }
+        .edgesIgnoringSafeArea(.all)
+        .background(Color("Background"))
     }
 }
 

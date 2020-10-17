@@ -17,12 +17,12 @@ struct DateSelectionView: View {
             ScrollViewReader { value in
                 HStack {
                     ForEach(0..<dateRange.count) { index in
-                        
+                    
                         Text(dateRange[index].isToday() ? "Today" : dateRange[index].convertToString(dateformat: .shortDate))
                             .bold()
-                            .frame(width: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .border(dateRange[index] == scheduleStore.scheduleDate ? Color.yellow : Color.black, width: 2)
-                            .foregroundColor(dateRange[index] == scheduleStore.scheduleDate ? .white : .gray)
+                            .frame(width: 80, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .border(dateRange[index] == scheduleStore.scheduleDate ? Color.yellow : Color("Menu"), width: 2)
+                            .foregroundColor(dateRange[index] == scheduleStore.scheduleDate ? Color("Primary") : Color("Secondary"))
                             .saturation(dateRange[index] == scheduleStore.scheduleDate ? 1.0 : 0.0)
                             .font(.body)
                             .id(index)
@@ -40,7 +40,7 @@ struct DateSelectionView: View {
                 }
             }
         } // ScrollView
-        .background(Color.black)
+        .background(Color("Menu"))
         .edgesIgnoringSafeArea([.leading, .trailing])
     }
 }
