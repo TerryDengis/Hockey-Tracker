@@ -11,7 +11,6 @@ struct SummaryGoalView: View {
     @EnvironmentObject var gameVM: GameStore
     var body: some View {
         HStack {
-            //LazyVGrid(columns: [GridItem(.adaptive(minimum:30))], alignment: .leading)
             VStack {
                 Text ("Goals")
                     .fontWeight(.bold)
@@ -33,11 +32,8 @@ struct SummaryGoalView: View {
                 Text ("\(gameVM.awayScore)")
                 Text ("\(gameVM.homeScore)")
             }
-
         }
-        .padding(0)
         .font(.caption)
-        
     }
 }
 

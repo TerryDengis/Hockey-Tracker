@@ -13,19 +13,24 @@ struct GameListView: View {
     
     var body: some View {
         let gamesList = scheduleVM.games
+        
         ScrollView {
             LazyVStack(spacing: 1) {
+                if scheduleVM.games.count == 0 {
+                    Text("No Games Scheduled")
+                        .font(.largeTitle)
+                        .foregroundColor(Color("Primary"))
+                    Spacer()
+                } 
                 ForEach(0..<gamesList.count, id:\.self) { index in
                     NavigationLink (
                         destination: RinkView(gameStore: GameStore(gameLink: domainUrl + scheduleVM.linkFor(gamesList[index]))),
                         label: {
                             VStack{
-                            ScoreView(game: gamesList[index]).environmentObject(scheduleVM)
-                                .padding(.horizontal, 5)
-                                .padding(.vertical, 2)
-                                
-                            Divider()
-                                .background(Color("Secondary"))
+                                ScoreView(game: gamesList[index]).environmentObject(scheduleVM)
+                                    .padding(5)
+                                Divider()
+                                    .background(Color("Secondary"))
                             }
                         })
                         .background(Color("Background"))

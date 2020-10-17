@@ -19,12 +19,17 @@ struct ScoreView: View {
                     .scaledToFit()
                     .frame(width: 40, height: 40)
                 Text (scheduleVM.awayTeamNameFor(game))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color("Primary"))
                 Text ("\(scheduleVM.awayTeamScoreFor(game))")
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color("Primary"))
             }
-            .foregroundColor(Color("Primary"))
+            
             HStack {
                 Spacer()
                 Text (scheduleVM.gameStatus(for: game))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Primary"))
                 Image(systemName: "chevron.right")
                     .padding(.leading)
@@ -35,9 +40,12 @@ struct ScoreView: View {
                     .scaledToFit()
                     .frame(width: 40, height: 40)
                 Text (scheduleVM.homeTeamNameFor(game))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color("Primary"))
                 Text ("\(scheduleVM.homeTeamScoreFor(game))")
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color("Primary"))
             }
-            .foregroundColor(Color("Primary"))
         }
         .font(.body)
     }

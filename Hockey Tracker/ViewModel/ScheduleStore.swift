@@ -24,6 +24,14 @@ class ScheduleStore: ObservableObject {
         fetchScheduleData()
     }
     
+    func addDay() {
+        setDate (scheduleDate.addDay())
+    }
+    
+    func subtractDay() {
+        setDate (scheduleDate.subtractDay())
+    }
+    
     var games: [Schedule.Games.GameDetail] {
         if let games = schedule?.totalItems {
             if games > 0, let gamesList = schedule?.dates[0].games {

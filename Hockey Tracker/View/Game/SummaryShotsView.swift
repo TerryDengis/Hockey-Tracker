@@ -12,7 +12,6 @@ struct SummaryShotsView: View {
     
     var body: some View {
         HStack {
-            //LazyVGrid(columns: [GridItem(.adaptive(minimum:30))], alignment: .leading) {
             VStack {
                 Text ("Shots")
                     .fontWeight(.bold)
@@ -38,7 +37,6 @@ struct SummaryShotsView: View {
         }
         .font(.caption)
     }
-    
 }
 
 struct SummaryShotsView_Previews: PreviewProvider {

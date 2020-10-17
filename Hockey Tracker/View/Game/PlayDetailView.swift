@@ -15,41 +15,43 @@ struct PlayDetailView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Image(play.team!.name)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width:100, height: 100)
-                Text(play.team!.name)
-                    .font(.largeTitle)
-                    .foregroundColor(Color(gameVM.teamColor((play.team?.triCode) ?? .Calgary)))
-  
-//                Text("\(play.about.goals.away)")
-//                Text("\(play.about.goals.home)")
-                
-                Text(play.result.description)
-                    .font(.title)
-                    .lineLimit(.none)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                Spacer()
-                Text("\(play.about.ordinalNum) \(play.about.period <= 3 ? "Period" :"") @ \(play.about.periodTime)")
-                    .font(.title)
-                Spacer()
-            }
-            .padding()
-            .foregroundColor(.primary)
-            .navigationBarTitle(play.result.event, displayMode: .inline)
-            .navigationBarItems(
-                trailing:
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("Done")
-                    }
+            ZStack {
+                Color("Background")
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Image(play.team!.name)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width:100, height: 100)
+                    Text(play.team!.name)
+                        .font(.title)
+                        .foregroundColor(Color(gameVM.teamColor((play.team?.triCode) ?? .Calgary)))
+                        .padding()
+                        .background(Capsule().fill(Color("Secondary")))
+                    Text(play.result.description)
+                        .font(.body)
+                        .lineLimit(.none)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                    Spacer()
+                    Text("\(play.about.ordinalNum) \(play.about.period <= 3 ? "Period" :"") @ \(play.about.periodTime)")
+                        .font(.title2)
+                    Spacer()
+                }
+                .foregroundColor(Color("Primary"))
+
+                .padding()
+                .navigationBarTitle(play.result.event, displayMode: .inline)
+                .navigationBarItems(
+                    trailing:
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Text("Done")
+                        }
             )
+            }
         }
-        .background(Color.secondary)
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }

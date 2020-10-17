@@ -9,21 +9,13 @@ import Foundation
 
 /// Date Format type
 enum DateFormatType: String {
-    /// Time
     case time = "HH:mm:ss"
-    
     case timeAM = "h:mm a"
-    
-    /// Date with hours
     case dateWithTime = "dd-MMM-yyyy  h:mm a"
-    
-    /// Date
     case date = "dd-MMM-yyyy"
-    
-    // reverseDate
     case reverseDate = "yyyy-MM-dd"
-    
     case shortDate = "MMM dd"
+    case day = "EEEE, MMM d, yyyy"
 }
 
 extension Date {
@@ -33,6 +25,19 @@ extension Date {
         dateFormatter.dateFormat = formatType.rawValue
         
         return dateFormatter.string(from: self)
+    }
+    
+    func addDay () -> Date {
+        var dateComponent = DateComponents()
+        dateComponent.day = 1
+        
+        return Calendar.current.date(byAdding: dateComponent, to: self)!
+    }
+    
+    func subtractDay () -> Date {
+        var dateComponent = DateComponents()
+        dateComponent.day = -1
+        return Calendar.current.date(byAdding: dateComponent, to: self)!
     }
     
     func addWeek () -> Date {

@@ -11,10 +11,43 @@ struct ScheduleView: View {
     @EnvironmentObject var scheduleVM: ScheduleStore
     @State private var showDatePicker = false
     @State private var selectedDate = Date()
+    @GestureState private var dragState = DragState.inactive
+    private var dragAreaThreshold: CGFloat = 30
     
+    enum DragState {
+        case inactive
+        case pressing
+        case dragging(translation: CGSize)
+        
+        var translation: CGSize {
+            switch self {
+            case .inactive, .pressing:
+                return .zero
+            case .dragging( let transition):
+                return transition
+            }
+        }
+        
+        var isDragging: Bool {
+            switch self {
+            case .dragging:
+                return true
+            case .pressing, .inactive:
+                return false
+            }
+        }
+        var isPressing: Bool {
+            switch self {
+            case .pressing, .dragging:
+                return true
+            case .inactive:
+                return false
+            }
+        }
+    }
     init() {
-        //UINavigationBar.appearance().backgroundColor = UIColor(hexString: "1E1E21")
-        UINavigationBar.appearance().backgroundColor = UIColor.blue
+        UINavigationBar.appearance().backgroundColor = UIColor(hexString: "1E1E21")
+        //UINavigationBar.appearance().backgroundColor = UIColor.blue
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: UIColor(hexString: "F8F8F9")]
         UINavigationBar.appearance().titleTextAttributes = [
@@ -24,38 +57,50 @@ struct ScheduleView: View {
     var body: some View {
         VStack {
             NavigationView {
-                VStack(spacing: 0) {
-                    DateSelectionView().environmentObject(scheduleVM)
-                    if scheduleVM.games.count == 0 {
-                        Text("No Games Scheduled")
-                            .font(.largeTitle)
-                            .foregroundColor(Color("Primary"))
-                        Spacer()
-                    } else {
+                ZStack {
+                    Color("Background")
+                        .edgesIgnoringSafeArea(.all)
+                    VStack(spacing: 0) {
+                        DateSelectionView().environmentObject(scheduleVM)
+                        HStack {
+                            Text (scheduleVM.scheduleDate.convertToString(dateformat: .day))
+                                .foregroundColor(Color("Primary"))
+                            Spacer()
+                        }
+                        .padding()
                         GameListView().environmentObject(scheduleVM)
-
-                    }
-                } // VStack
-                .navigationBarTitle("NHL Schedule", displayMode: .inline)
-                .navigationBarItems (
-                    trailing:
-                        Image(systemName: "calendar")
-                        .imageScale(.large)
-                        .foregroundColor(.blue)
-                        .onTapGesture {
-                            self.showDatePicker.toggle()
-                        }
-                        .popover(isPresented: $showDatePicker) {
-                            DatePickerView().environmentObject(scheduleVM)
-                                .frame(width:300, height:400)
-                        }
-                )
-                
+                    } // VStack
+                    .navigationBarTitle("NHL Schedule", displayMode: .inline)
+                    .navigationBarItems (
+                        trailing:
+                            Image(systemName: "calendar")
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                            .onTapGesture {
+                                self.showDatePicker.toggle()
+                            }
+                            .sheet(isPresented: $showDatePicker) {
+                                DatePickerView().environmentObject(scheduleVM)
+                                    .frame(width:300, height:400)
+                            }
+                    )
+                    .gesture(LongPressGesture(minimumDuration: 0.01)
+                        .sequenced(before: DragGesture())
+                        .onEnded ( { value in
+                            guard case .second(true, let drag?) = value else {
+                                return
+                            }
+                            if drag.translation.width < -dragAreaThreshold {
+                                scheduleVM.subtractDay()
+                            } else if drag.translation.width > dragAreaThreshold {
+                                scheduleVM.addDay()
+                            }
+                        })
+                    )
+                }
             }
             .navigationViewStyle(StackNavigationViewStyle())
         }
-        .edgesIgnoringSafeArea(.all)
-        .background(Color("Background"))
     }
 }
 

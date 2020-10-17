@@ -25,61 +25,61 @@ struct RinkView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ScrollView(.vertical) {
-                PeriodView(currentPeriod: $currentPeriod).environmentObject(gameStore)
+            ZStack {
+                Color("Background")
+                    .edgesIgnoringSafeArea(.all)
+                ScrollView(.vertical) {
+                    PeriodView(currentPeriod: $currentPeriod).environmentObject(gameStore)
+                        .padding()
+                    ZStack {
+                        Image("Rink")
+                            .resizable()
+                            .scaledToFit()
+                        let plays = gameStore.playsForPeriod(currentPeriod)
+                        ForEach(plays, id: \.id) { play in
+                            ChevronView(play: play, displayWidth: geometry.size.width).environmentObject(gameStore)
+                        }
+                        .zIndex(1)
+                    }
+                    HStack {
+                        SummaryShotsView().environmentObject(gameStore)
+                        Spacer ()
+                        SummaryGoalView().environmentObject(gameStore)
+                    }
+                    .foregroundColor(Color("Primary"))
                     .padding()
-                ZStack {
-                    Image("Rink")
-                        .resizable()
-                        .scaledToFit()
-                        .background(Color.init(UIColor.lightGray))
-
-                    let plays = gameStore.playsForPeriod(currentPeriod)
-                    ForEach(plays, id: \.id) { play in
-                        ChevronView(play: play, displayWidth: geometry.size.width).environmentObject(gameStore)
+                    Spacer()
+                } // ScrollView
+                .navigationBarTitle(Text ("\(gameStore.awayTeam) \(gameStore.awayScore) at \(gameStore.homeTeam) \(gameStore.homeScore) \(gameStore.gameStatus)"))
+                .navigationBarItems (
+                    trailing:
+                        Image(systemName: "gear")
+                        .imageScale(.large)
+                        .foregroundColor(.blue)
+                        .onTapGesture {
+                            self.showSettings.toggle()
+                        }
+                        .popover(isPresented: $showSettings) {
+                            SettingsView().environmentObject(gameStore)
+                                .frame(width: 350, height: 300)
+                        }
+                )
+                .onAppear {
+                    if showGoals == nil {
+                        showGoals = true
                     }
-                    .zIndex(1)
-                }
-                HStack {
-                    SummaryShotsView().environmentObject(gameStore)
-                    Spacer ()
-                    SummaryGoalView().environmentObject(gameStore)
-                }
-                .padding()
-                
-                Spacer()
-            } // ScrollView
-            .navigationBarTitle(Text ("\(gameStore.awayTeam) \(gameStore.awayScore) at \(gameStore.homeTeam) \(gameStore.homeScore) \(gameStore.gameStatus)"))
-            .navigationBarItems (
-                trailing:
-                    Image(systemName: "gear")
-                    .imageScale(.large)
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        self.showSettings.toggle()
+                    if showShots == nil {
+                        showShots = false
                     }
-                    .popover(isPresented: $showSettings) {
-                        SettingsView().environmentObject(gameStore)
-                            .frame(width: 350, height: 300)
+                    if showMissedShots == nil {
+                        showMissedShots = false
                     }
-            )
-            .background(Color.init(UIColor.lightGray))
-            .onAppear {
-                if showGoals == nil {
-                    showGoals = true
+                    if showBlockedShots == nil {
+                        showBlockedShots = false
+                    }
+                    gameStore.fetchGameData()
                 }
-                if showShots == nil {
-                    showShots = false
-                }
-                if showMissedShots == nil {
-                    showMissedShots = false
-                }
-                if showBlockedShots == nil {
-                    showBlockedShots = false
-                }
-                gameStore.fetchGameData()
             }
-            .edgesIgnoringSafeArea([.bottom, .leading])
         } // Geometry
     }
 }
