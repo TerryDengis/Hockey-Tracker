@@ -10,7 +10,6 @@ import SwiftUI
 struct DatePickerView: View {
     @EnvironmentObject var scheduleVM: ScheduleStore
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.colorScheme) var colorScheme
     @State private var selectedDate = Date()
     
     var body: some View {
@@ -39,10 +38,13 @@ struct DatePickerView: View {
                         }) {
                             Text("OK")
                         }
-            )
+                )
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear() {
+            selectedDate = scheduleVM.scheduleDate
+        }
     }
 }
 

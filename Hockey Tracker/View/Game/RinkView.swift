@@ -41,11 +41,17 @@ struct RinkView: View {
                         }
                         .zIndex(1)
                     }
-                    HStack {
-                        SummaryShotsView().environmentObject(gameStore)
-                        Spacer ()
-                        SummaryGoalView().environmentObject(gameStore)
+                    VStack() {
+                            SummaryShotsView()
+                                .environmentObject(gameStore)
+                                .foregroundColor(Color("Primary"))
+                                .padding([.horizontal, .bottom])
+                            SummaryGoalView()
+                                .environmentObject(gameStore)
+                                .foregroundColor(Color("Primary"))
+                                .padding(.horizontal)
                     }
+
                     .foregroundColor(Color("Primary"))
                     .padding()
                     Spacer()

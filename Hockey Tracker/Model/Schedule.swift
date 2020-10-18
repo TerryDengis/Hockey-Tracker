@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Schedule
 struct Schedule: Codable {
     let copyright: String
     let totalItems: Int
@@ -17,6 +18,7 @@ struct Schedule: Codable {
     let wait: Int
     let dates: [Games]
     
+    // MARK: - Games
     struct Games: Codable {
         let date: String
         let totalItems: Int
@@ -35,7 +37,7 @@ struct Schedule: Codable {
             let gameDate: String
             let status: Status
             let teams: Teams
-            // MARK: - defined in LineScore.swift
+            // MARK: - Linescore defined in Linescore.swift
             let linescore: Linescore
             let venue: Venue
             let content: Content

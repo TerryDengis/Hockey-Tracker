@@ -14,6 +14,7 @@ let rinkWidth : CGFloat = 200.0
 let home = ".circle"
 let away = ".square"
 let shot = "plus"
+let soShot = "s"
 let missedShot = "minus"
 let blockedShot = "multiply"
 

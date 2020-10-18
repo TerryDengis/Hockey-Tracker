@@ -1,192 +1,6 @@
-//
-//import Foundation
-//
-//// MARK: - PlayoffOt
-//struct GameSummary: Codable {
-//    let copyright: String
-//    let gamePk: Int
-//    let link: String
-//    let metaData: MetaData
-//    let gameData: GameData
-//    let liveData: LiveData
-//}
-//
-//// MARK: - GameData
-//struct GameData: Codable {
-//    let game: Game
-//    let datetime: Datetime
-//    let status: Status
-//    let teams: GameDataTeams
-//    let players: [String: PlayerValue]
-//    let venue: GameDataVenue
-//}
-//
-//// MARK: - Datetime
-//struct Datetime: Codable {
-//    let dateTime, endDateTime: Date
-//}
-//
 //// MARK: - Game
 //struct Game: Codable {
-//    let pk: Int
-//    let season, type: String
-//}
-//
-//// MARK: - PlayerValue
-//struct PlayerValue: Codable {
-//    let id: Int
-//    let fullName, link, firstName, lastName: String
-//    let primaryNumber, birthDate: String
-//    let currentAge: Int
-//    let birthCity: String
-//    let birthStateProvince: String?
-//    let birthCountry, nationality, height: String
-//    let weight: Int
-//    let active, alternateCaptain, captain, rookie: Bool
-//    let shootsCatches: ShootsCatches
-//    let rosterStatus: RosterStatus
-//    let currentTeam: CurrentTeam
-//    let primaryPosition: Position
-//}
-//
-//// MARK: - CurrentTeam
-//struct CurrentTeam: Codable {
-//    let id: Int
-//    let name: String
-//    let link: String
-//    let triCode, abbreviation: TriCodeEnum?
-//}
-//
-//// MARK: - Position
-//struct Position: Codable {
-//    let code: ShootsCatches
-//    let name, type: TypeEnum
-//    let abbreviation: PrimaryPositionAbbreviation
-//}
-//
-//enum PrimaryPositionAbbreviation: String, Codable {
-//    case center = "C"
-//    case defense = "D"
-//    case goal = "G"
-//    case headCoach = "Head Coach"
-//    case leftwing = "LW"
-//    case na = "N/A"
-//    case rightwing = "RW"
-//}
-//
-//enum ShootsCatches: String, Codable {
-//    case c = "C"
-//    case d = "D"
-//    case g = "G"
-//    case hc = "HC"
-//    case l = "L"
-//    case nA = "N/A"
-//    case r = "R"
-//}
-//
-//enum TypeEnum: String, Codable {
-//    case center = "Center"
-//    case defenseman = "Defenseman"
-//    case forward = "Forward"
-//    case goalie = "Goalie"
-//    case headCoach = "Head Coach"
-//    case leftWing = "Left Wing"
-//    case rightWing = "Right Wing"
-//    case unknown = "Unknown"
-//}
-//
-//enum RosterStatus: String, Codable {
-//    case n = "N"
-//    case y = "Y"
-//}
-//
-//// MARK: - Status
-//struct Status: Codable {
-//    let abstractGameState, codedGameState, detailedState, statusCode: String
-//    let startTimeTBD: Bool
-//}
-//
-//// MARK: - GameDataTeams
-//struct GameDataTeams: Codable {
-//    let away, home: PurpleAway
-//}
-//
-//// MARK: - PurpleAway
-//struct PurpleAway: Codable {
-//    let id: Int
-//    let name: CurrentTeamName
-//    let link: CurrentTeamLink
-//    let venue: AwayVenue
-//    let abbreviation, triCode: TriCodeEnum
-//    let teamName, locationName, firstYearOfPlay: String
-//    let division: Division
-//    let conference: CurrentTeam
-//    let franchise: Franchise
-//    let shortName: String
-//    let officialSiteURL: String
-//    let franchiseID: Int
-//    let active: Bool
-//    
-//    enum CodingKeys: String, CodingKey {
-//        case id, name, link, venue, abbreviation, triCode, teamName, locationName, firstYearOfPlay, division, conference, franchise, shortName
-//        case officialSiteURL
-//        case franchiseID
-//        case active
-//    }
-//}
-//
-//// MARK: - Division
-//struct Division: Codable {
-//    let id: Int
-//    let name: DivisionName
-//    let nameShort: String?
-//    let link: DivisionLink
-//    let abbreviation: String?
-//    let triCode: TriCodeEnum?
-//}
-//
-//enum DivisionLink: String, Codable {
-//    case apiV1Divisions17 = "/api/v1/divisions/17"
-//    case apiV1Divisions18 = "/api/v1/divisions/18"
-//    case apiV1Teams14 = "/api/v1/teams/14"
-//    case apiV1Teams29 = "/api/v1/teams/29"
-//}
-//
-//enum DivisionName: String, Codable {
-//    case atlantic = "Atlantic"
-//    case columbusBlueJackets = "Columbus Blue Jackets"
-//    case metropolitan = "Metropolitan"
-//    case tampaBayLightning = "Tampa Bay Lightning"
-//}
-//
-//// MARK: - Franchise
-//struct Franchise: Codable {
-//    let franchiseID: Int
-//    let teamName, link: String
-//    
-//    enum CodingKeys: String, CodingKey {
-//        case franchiseID
-//        case teamName, link
-//    }
-//}
-//
-//// MARK: - AwayVenue
-//struct AwayVenue: Codable {
-//    let id: Int?
-//    let name, link, city: String
-//    let timeZone: TimeZone
-//}
-//
-//// MARK: - TimeZone
-//struct TimeZone: Codable {
-//    let id: String
-//    let offset: Int
-//    let tz: String
-//}
-//
-//// MARK: - GameDataVenue
-//struct GameDataVenue: Codable {
-//    let name, link: String
+//    let liveData: LiveData
 //}
 //
 //// MARK: - LiveData
@@ -217,13 +31,13 @@
 //
 //// MARK: - BoxscoreTeams
 //struct BoxscoreTeams: Codable {
-//    let away: FluffyAway
+//    let away: PurpleAway
 //    let home: Home
 //}
 //
-//// MARK: - FluffyAway
-//struct FluffyAway: Codable {
-//    let team: CurrentTeam
+//// MARK: - PurpleAway
+//struct PurpleAway: Codable {
+//    let team: Team
 //    let teamStats: TeamStats
 //    let players: AwayPlayers
 //    let goalies, skaters, onIce: [Int]
@@ -244,86 +58,110 @@
 //    let fullName, link: String
 //}
 //
+//// MARK: - Position
+//struct Position: Codable {
+//    let code, name: String
+//    let type: TypeEnum
+//    let abbreviation: String
+//}
+//
+//enum TypeEnum: String, Codable {
+//    case defenseman = "Defenseman"
+//    case forward = "Forward"
+//    case goalie = "Goalie"
+//    case headCoach = "Head Coach"
+//    case unknown = "Unknown"
+//}
+//
 //// MARK: - OnIcePlus
 //struct OnIcePlus: Codable {
 //    let playerID, shiftDuration, stamina: Int
 //    
 //    enum CodingKeys: String, CodingKey {
-//        case playerID
+//        case playerID = "playerId"
 //        case shiftDuration, stamina
 //    }
 //}
 //
 //// MARK: - AwayPlayers
 //struct AwayPlayers: Codable {
-//    let id8480074: ID8471804Class
-//    let id8478906, id8478506: ID8476431Class
-//    let id8477416: ID8471804Class
-//    let id8476449, id8476431, id8480205: ID8476431Class
-//    let id8476850, id8476432: ID8471804Class
-//    let id8479369, id8478831: ID8476431Class
-//    let id8479400: ID8471804Class
-//    let id8476870: ID8476431Class
-//    let id8480762, id8471804, id8474679: ID8471804Class
-//    let id8476913: ID8476431Class
-//    let id8473422: ID8471804Class
-//    let id8476914: Id8476
-//    let id8474715, id8477505, id8475233: ID8471804Class
-//    let id8478007: ID8476431Class
-//    let id8474062, id8478567, id8477495, id8478882: ID8471804Class
-//    let id8478460, id8480853: ID8471804Class
+//    let id8470966: ID8470966Class
+//    let id8474628, id8476979, id8477935: Id84
+//    let id8474736: ID8470966Class
+//    let id8474673, id8476356, id8475762, id8479346: Id84
+//    let id8476873, id8474150, id8476346, id8479314: Id84
+//    let id8478397: Id84
+//    let id8478430: ID8470966Class
+//    let id8478396, id8473473, id8477497: Id84
+//    let id8479496: ID8479496Class
+//    let id8478585, id8477496, id8478233: Id84
 //    
 //    enum CodingKeys: String, CodingKey {
-//        case id8480074
-//        case id8478906
-//        case id8478506
-//        case id8477416
-//        case id8476449
-//        case id8476431
-//        case id8480205
-//        case id8476850
-//        case id8476432
-//        case id8479369
-//        case id8478831
-//        case id8479400
-//        case id8476870
-//        case id8480762
-//        case id8471804
-//        case id8474679
-//        case id8476913
-//        case id8473422
-//        case id8476914
-//        case id8474715
-//        case id8477505
-//        case id8475233
-//        case id8478007
-//        case id8474062
-//        case id8478567
-//        case id8477495
-//        case id8478882
-//        case id8478460
-//        case id8480853
+//        case id8470966 = "ID8470966"
+//        case id8474628 = "ID8474628"
+//        case id8476979 = "ID8476979"
+//        case id8477935 = "ID8477935"
+//        case id8474736 = "ID8474736"
+//        case id8474673 = "ID8474673"
+//        case id8476356 = "ID8476356"
+//        case id8475762 = "ID8475762"
+//        case id8479346 = "ID8479346"
+//        case id8476873 = "ID8476873"
+//        case id8474150 = "ID8474150"
+//        case id8476346 = "ID8476346"
+//        case id8479314 = "ID8479314"
+//        case id8478397 = "ID8478397"
+//        case id8478430 = "ID8478430"
+//        case id8478396 = "ID8478396"
+//        case id8473473 = "ID8473473"
+//        case id8477497 = "ID8477497"
+//        case id8479496 = "ID8479496"
+//        case id8478585 = "ID8478585"
+//        case id8477496 = "ID8477496"
+//        case id8478233 = "ID8478233"
 //    }
 //}
 //
-//// MARK: - ID8471804Class
-//struct ID8471804Class: Codable {
-//    let person: ID8471804Person
+//// MARK: - ID8470966Class
+//struct ID8470966Class: Codable {
+//    let person: ID8470966Person
 //    let jerseyNumber: String
 //    let position: Position
-//    let stats: ID8471804Stats
+//    let stats: StatsClass
 //}
 //
-//// MARK: - ID8471804Person
-//struct ID8471804Person: Codable {
+//// MARK: - ID8470966Person
+//struct ID8470966Person: Codable {
 //    let id: Int
 //    let fullName, link: String
 //    let shootsCatches: ShootsCatches
 //    let rosterStatus: RosterStatus
 //}
 //
-//// MARK: - ID8471804Stats
-//struct ID8471804Stats: Codable {
+//enum RosterStatus: String, Codable {
+//    case n = "N"
+//    case y = "Y"
+//}
+//
+//enum ShootsCatches: String, Codable {
+//    case l = "L"
+//    case r = "R"
+//}
+//
+//// MARK: - StatsClass
+//struct StatsClass: Codable {
+//}
+//
+//// MARK: - Id84
+//struct Id84: Codable {
+//    let person: ID8470966Person
+//    let jerseyNumber: String
+//    let position: Position
+//    let stats: ID8473473Stats
+//}
+//
+//// MARK: - ID8473473Stats
+//struct ID8473473Stats: Codable {
 //    let skaterStats: SkaterStats
 //}
 //
@@ -339,33 +177,21 @@
 //    
 //    enum CodingKeys: String, CodingKey {
 //        case timeOnIce, assists, goals, shots, hits, powerPlayGoals, powerPlayAssists, penaltyMinutes
-//        case faceOffWINS
+//        case faceOffWINS = "faceOffWins"
 //        case faceoffTaken, takeaways, giveaways, shortHandedGoals, shortHandedAssists, blocked, plusMinus, evenTimeOnIce, powerPlayTimeOnIce, shortHandedTimeOnIce, faceOffPct
 //    }
 //}
 //
-//// MARK: - ID8476431Class
-//struct ID8476431Class: Codable {
-//    let person: ID8471804Person
+//// MARK: - ID8479496Class
+//struct ID8479496Class: Codable {
+//    let person: ID8470966Person
 //    let jerseyNumber: String
 //    let position: Position
-//    let stats: StatsClass
+//    let stats: ID8479496Stats
 //}
 //
-//// MARK: - StatsClass
-//struct StatsClass: Codable {
-//}
-//
-//// MARK: - Id8476
-//struct Id8476: Codable {
-//    let person: ID8471804Person
-//    let jerseyNumber: String
-//    let position: Position
-//    let stats: ID8476914Stats
-//}
-//
-//// MARK: - ID8476914Stats
-//struct ID8476914Stats: Codable {
+//// MARK: - ID8479496Stats
+//struct ID8479496Stats: Codable {
 //    let goalieStats: GoalieStats
 //}
 //
@@ -380,6 +206,30 @@
 //    let powerPlaySavePercentage: Int
 //    let shortHandedSavePercentage: Int?
 //    let evenStrengthSavePercentage: Double
+//}
+//
+//// MARK: - Team
+//struct Team: Codable {
+//    let id: Int
+//    let name: Name
+//    let link: Link
+//    let abbreviation: Abbreviation?
+//    let triCode: Abbreviation
+//}
+//
+//enum Abbreviation: String, Codable {
+//    case bos = "BOS"
+//    case cgy = "CGY"
+//}
+//
+//enum Link: String, Codable {
+//    case apiV1Teams20 = "/api/v1/teams/20"
+//    case apiV1Teams6 = "/api/v1/teams/6"
+//}
+//
+//enum Name: String, Codable {
+//    case bostonBruins = "Boston Bruins"
+//    case calgaryFlames = "Calgary Flames"
 //}
 //
 //// MARK: - TeamStats
@@ -398,7 +248,7 @@
 //
 //// MARK: - Home
 //struct Home: Codable {
-//    let team: Division
+//    let team: Team
 //    let teamStats: TeamStats
 //    let players: HomePlayers
 //    let goalies, skaters, onIce: [Int]
@@ -410,51 +260,40 @@
 //
 //// MARK: - HomePlayers
 //struct HomePlayers: Codable {
-//    let id8480172: ID8476431Class
-//    let id8476826: ID8471804Class
-//    let id8470601: ID8476431Class
-//    let id8476624, id8474567: ID8471804Class
-//    let id8474568: ID8476431Class
-//    let id8476453, id8474870, id8476399, id8474031: ID8471804Class
-//    let id8478477, id8475167, id8474151, id8474034: ID8471804Class
-//    let id8480186: ID8476431Class
-//    let id8476292, id8478010: ID8471804Class
-//    let id8478472, id8475809: ID8476431Class
-//    let id8478519: ID8471804Class
-//    let id8477409: ID8476431Class
-//    let id8478416, id8476975, id8473986: ID8471804Class
-//    let id8476883: Id8476
-//    let id8474564: ID8476431Class
-//    let id8479410: ID8471804Class
+//    let id8470638, id8473419: Id84
+//    let id8475807: ID8470966Class
+//    let id8471276: Id84
+//    let id8471695: ID8479496Class
+//    let id8477956, id8475745, id8477941, id8480944: Id84
+//    let id8479325, id8478468, id8480901, id8475780: Id84
+//    let id8478443, id8476792, id8476891, id8476374: Id84
+//    let id8478498: Id84
+//    let id8475186, id8477320: ID8470966Class
+//    let id8478075, id8465009: Id84
 //    
 //    enum CodingKeys: String, CodingKey {
-//        case id8480172
-//        case id8476826
-//        case id8470601
-//        case id8476624
-//        case id8474567
-//        case id8474568
-//        case id8476453
-//        case id8474870
-//        case id8476399
-//        case id8474031
-//        case id8478477
-//        case id8475167
-//        case id8474151
-//        case id8474034
-//        case id8480186
-//        case id8476292
-//        case id8478010
-//        case id8478472
-//        case id8475809
-//        case id8478519
-//        case id8477409
-//        case id8478416
-//        case id8476975
-//        case id8473986
-//        case id8476883
-//        case id8474564
-//        case id8479410
+//        case id8470638 = "ID8470638"
+//        case id8473419 = "ID8473419"
+//        case id8475807 = "ID8475807"
+//        case id8471276 = "ID8471276"
+//        case id8471695 = "ID8471695"
+//        case id8477956 = "ID8477956"
+//        case id8475745 = "ID8475745"
+//        case id8477941 = "ID8477941"
+//        case id8480944 = "ID8480944"
+//        case id8479325 = "ID8479325"
+//        case id8478468 = "ID8478468"
+//        case id8480901 = "ID8480901"
+//        case id8475780 = "ID8475780"
+//        case id8478443 = "ID8478443"
+//        case id8476792 = "ID8476792"
+//        case id8476891 = "ID8476891"
+//        case id8476374 = "ID8476374"
+//        case id8478498 = "ID8478498"
+//        case id8475186 = "ID8475186"
+//        case id8477320 = "ID8477320"
+//        case id8478075 = "ID8478075"
+//        case id8465009 = "ID8465009"
 //    }
 //}
 //
@@ -479,14 +318,9 @@
 //}
 //
 //enum CurrentPeriodOrdinal: String, Codable {
-//    case ot = "OT"
 //    case the1St = "1st"
 //    case the2Nd = "2nd"
-//    case the2Ot = "2OT"
-//    case the3Ot = "3OT"
 //    case the3RD = "3rd"
-//    case the4Ot = "4OT"
-//    case the5Ot = "5OT"
 //}
 //
 //// MARK: - IntermissionInfo
@@ -507,16 +341,10 @@
 //// MARK: - PeriodAway
 //struct PeriodAway: Codable {
 //    let goals, shotsOnGoal: Int
-//    let rinkSide: RinkSide
-//}
-//
-//enum RinkSide: String, Codable {
-//    case rinkSideLeft = "left"
-//    case rinkSideRight = "right"
+//    let rinkSide: String
 //}
 //
 //enum PeriodType: String, Codable {
-//    case overtime = "OVERTIME"
 //    case regular = "REGULAR"
 //}
 //
@@ -538,12 +366,12 @@
 //
 //// MARK: - LinescoreTeams
 //struct LinescoreTeams: Codable {
-//    let home, away: TentacledAway
+//    let home, away: TeamsHome
 //}
 //
-//// MARK: - TentacledAway
-//struct TentacledAway: Codable {
-//    let team: CurrentTeam
+//// MARK: - TeamsHome
+//struct TeamsHome: Codable {
+//    let team: Team
 //    let goals, shotsOnGoal: Int
 //    let goaliePulled: Bool
 //    let numSkaters: Int
@@ -563,8 +391,8 @@
 //    let result: AllPlayResult
 //    let about: About
 //    let coordinates: AllPlayCoordinates
-//    let players: [PlayerElement]?
-//    let team: Division?
+//    let players: [Player]?
+//    let team: Team?
 //}
 //
 //// MARK: - About
@@ -578,7 +406,7 @@
 //    
 //    enum CodingKeys: String, CodingKey {
 //        case eventIdx
-//        case eventID
+//        case eventID = "eventId"
 //        case period, periodType, ordinalNum, periodTime, periodTimeRemaining, dateTime, goals
 //    }
 //}
@@ -593,8 +421,8 @@
 //    let x, y: Int?
 //}
 //
-//// MARK: - PlayerElement
-//struct PlayerElement: Codable {
+//// MARK: - Player
+//struct Player: Codable {
 //    let player: FirstStar
 //    let playerType: PlayerType
 //    let seasonTotal: Int?
@@ -621,16 +449,15 @@
 //    let eventCode: String
 //    let eventTypeID: EventTypeID
 //    let resultDescription: String
-//    let secondaryType: SecondaryType?
-//    let penaltySeverity: String?
+//    let secondaryType, penaltySeverity: String?
 //    let penaltyMinutes: Int?
 //    let strength: Strength?
 //    let gameWinningGoal, emptyNet: Bool?
 //    
 //    enum CodingKeys: String, CodingKey {
 //        case event, eventCode
-//        case eventTypeID
-//        case resultDescription
+//        case eventTypeID = "eventTypeId"
+//        case resultDescription = "description"
 //        case secondaryType, penaltySeverity, penaltyMinutes, strength, gameWinningGoal, emptyNet
 //    }
 //}
@@ -675,21 +502,6 @@
 //    case takeaway = "TAKEAWAY"
 //}
 //
-//enum SecondaryType: String, Codable {
-//    case backhand = "Backhand"
-//    case deflected = "Deflected"
-//    case delayingGamePuckOverGlass = "Delaying Game - Puck over glass"
-//    case hiSticking = "Hi-sticking"
-//    case holding = "Holding"
-//    case slapShot = "Slap Shot"
-//    case slashing = "Slashing"
-//    case snapShot = "Snap Shot"
-//    case tooManyMenOnTheIce = "Too many men on the ice"
-//    case tripping = "Tripping"
-//    case wrapAround = "Wrap-around"
-//    case wristShot = "Wrist Shot"
-//}
-//
 //// MARK: - Strength
 //struct Strength: Codable {
 //    let code, name: String
@@ -711,8 +523,8 @@
 //    
 //    enum CodingKeys: String, CodingKey {
 //        case event, eventCode
-//        case eventTypeID
-//        case resultDescription
+//        case eventTypeID = "eventTypeId"
+//        case resultDescription = "description"
 //    }
 //}
 //
@@ -722,4 +534,3 @@
 //    let plays: [Int]
 //    let endIndex: Int
 //}
-//

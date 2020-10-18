@@ -71,14 +71,13 @@ class GameStore: ObservableObject {
         }
         switch play.result.eventTypeId {
         case .goal:
-            var scoreModifier = 0
             if shootOut {
-                scoreModifier = 1
+                return soShot + imageStyle
             }
             if play.team?.triCode == gameSummary?.gameData.teams.away.triCode {
-                return "\(play.about.goals.away+scoreModifier)" + imageStyle
+                return "\(play.about.goals.away)" + imageStyle
             } else {
-                return "\(play.about.goals.home+scoreModifier)" + imageStyle
+                return "\(play.about.goals.home)" + imageStyle
             }
         case .shot:
             return shot + imageStyle
@@ -93,7 +92,6 @@ class GameStore: ObservableObject {
     
     func xCoordinateFor (_ play: GameSummary.LiveData.Plays.Play) -> CGFloat {
         if let x = play.coordinates.x {
-            //print ("x = \(x)")
             return CGFloat(x) + rinkWidth / 2.0
         }
         return 0.0
@@ -101,7 +99,6 @@ class GameStore: ObservableObject {
     
     func yCoordinateFor (_ play: GameSummary.LiveData.Plays.Play) -> CGFloat{
         if let y = play.coordinates.y {
-            //print ("y = \(y)")
             return CGFloat(y * -1) + rinkHeight / 2.0
         }
         return 0.0
@@ -110,23 +107,17 @@ class GameStore: ObservableObject {
 
     func playsForPeriod(_ period: Int) -> [GameSummary.LiveData.Plays.Play] {
         var plays = [GameSummary.LiveData.Plays.Play]()
-        
         if period > 0 {
-            let startIndex = gameSummary?.liveData.plays.playsByPeriod[period-1].startIndex
-            let endIndex = gameSummary?.liveData.plays.playsByPeriod[period-1].endIndex
-            let allPlays = gameSummary?.liveData.plays.allPlays
+            guard let startIndex = gameSummary?.liveData.plays.playsByPeriod[period-1].startIndex else { return plays }
+            guard let endIndex = gameSummary?.liveData.plays.playsByPeriod[period-1].endIndex else { return plays }
+            guard let allPlays = gameSummary?.liveData.plays.allPlays else { return plays }
             
-            if startIndex != nil && endIndex != nil && allPlays != nil {
-                for index in startIndex!...endIndex! {
-                    if allPlays![index].result.eventTypeId == EventType.goal  && showGoals! ||
-                        allPlays![index].result.eventTypeId == EventType.shot && showShots! ||
-                        allPlays![index].result.eventTypeId == EventType.blockedShot && showBlockedShots! ||
-                        allPlays![index].result.eventTypeId == EventType.missedShot && showMissedShots! {
-                        plays.append(allPlays![index])
-                        if allPlays![index].result.eventTypeId == EventType.goal {
-                            print (allPlays![index].coordinates)
-                        }
-                    }
+            for index in startIndex...endIndex {
+                if allPlays[index].result.eventTypeId == EventType.goal  && showGoals! ||
+                    allPlays[index].result.eventTypeId == EventType.shot && showShots! ||
+                    allPlays[index].result.eventTypeId == EventType.blockedShot && showBlockedShots! ||
+                    allPlays[index].result.eventTypeId == EventType.missedShot && showMissedShots! {
+                    plays.append(allPlays[index])
                 }
             }
         }
@@ -134,8 +125,8 @@ class GameStore: ObservableObject {
         return plays
     }
     
-    func playersInvolvedIn(_ play: GameSummary.LiveData.Plays.Play) -> [GameSummary.LiveData.Plays.Play.PlayersInvolved.PlayerDetail] {
-        var players = [GameSummary.LiveData.Plays.Play.PlayersInvolved.PlayerDetail] ()
+    func playersInvolvedIn(_ play: GameSummary.LiveData.Plays.Play) -> [GameSummary.LiveData.Plays.Play.PlayersInvolved.Player] {
+        var players = [GameSummary.LiveData.Plays.Play.PlayersInvolved.Player] ()
         if let involvedPlayers = play.players {
             for index in 0..<involvedPlayers.count {
                 players.append(involvedPlayers[index].player)

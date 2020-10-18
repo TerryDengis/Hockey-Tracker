@@ -35,7 +35,7 @@ struct SummaryShotsView: View {
                 Text ("\(gameVM.homeShots)")
             }
         }
-        .font(.caption)
+        .font(.body)
     }
 }
 

@@ -23,8 +23,8 @@ struct PeriodView: View {
                     .frame(width: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .border(currentPeriod == period.id ? Color.black : Color.yellow, width: 3)
                     .background(currentPeriod == period.id ? Color.black : Color.yellow)
+                    .foregroundColor(Color("Primary"))
                     .cornerRadius(5)
-
                 }
                 if gameVM.shootOut {
                     Button("SO") {
@@ -33,6 +33,7 @@ struct PeriodView: View {
                     .frame(width: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .border(currentPeriod == 5 ? Color.black : Color.yellow, width: 3)
                     .background(currentPeriod == 5 ? Color.black : Color.yellow)
+                    .foregroundColor(Color("Primary"))
                     .cornerRadius(5)
                 }
             }

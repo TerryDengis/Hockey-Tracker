@@ -6,6 +6,7 @@
 //
 import Foundation
 
+// MARK: - Linescore
 struct Linescore: Codable {
     let currentPeriod: Int
     let currentPeriodOrdinal : String?
@@ -18,6 +19,7 @@ struct Linescore: Codable {
     let intermissionInfo: IntermissionInfo?
     let powerPlayInfo: PowerPlayInfo?
     
+    // MARK: - Period
     struct Period: Codable, Identifiable {
         var id: Int
         let periodType: String
@@ -39,6 +41,7 @@ struct Linescore: Codable {
         }
     }
     
+    // MARK: - Shootout
     struct Shootout: Codable {
         let away: ShootoutInfo
         let home: ShootoutInfo
@@ -49,6 +52,7 @@ struct Linescore: Codable {
         }
     }
     
+    // MARK: - Teams
     struct Teams: Codable {
         let home: Team
         let away: Team
@@ -69,12 +73,14 @@ struct Linescore: Codable {
         }
     }
     
+    // MARK: - IntermissionInfo
     struct IntermissionInfo: Codable {
         let intermissionTimeRemaining: Int
         let intermissionTimeElapsed: Int
         let inIntermission: Bool
     }
     
+    // MARK: - PowerPlayInfo
     struct PowerPlayInfo: Codable {
         let situationTimeRemaining: Int
         let situationTimeElapsed: Int

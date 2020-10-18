@@ -93,47 +93,16 @@ enum StatusCode: String, Codable {
     case final = "7"
 }
 
-//enum ConferenceLink: String, Codable {
-//    case apiV1Conferences5 = "/api/v1/conferences/5"
-//    case apiV1Conferences6 = "/api/v1/conferences/6"
-//}
+enum PositionCode: String, Codable {
+    case center = "C"
+    case defenseman = "D"
+    case goalie = "G"
+    case leftWing = "LW"
+    case rightWing = "RW"
+}
 
-//enum ConferenceName: String, Codable {
-//    case eastern = "Eastern"
-//    case western = "Western"
-//}
-
-//enum Abbreviation: String, Codable {
-//    case a = "A"
-//    case c = "C"
-//    case m = "M"
-//    case p = "P"
-//}
-
-//enum DivisionLink: String, Codable {
-//    case apiV1Divisions15 = "/api/v1/divisions/15"
-//    case apiV1Divisions16 = "/api/v1/divisions/16"
-//    case apiV1Divisions17 = "/api/v1/divisions/17"
-//    case apiV1Divisions18 = "/api/v1/divisions/18"
-//}
-
-//enum DivisionName: String, Codable {
-//    case atlantic = "Atlantic"
-//    case central = "Central"
-//    case metropolitan = "Metropolitan"
-//    case pacific = "Pacific"
-//}
-
-//enum NameShort: String, Codable {
-//    case atl = "ATL"
-//    case cen = "CEN"
-//    case metro = "Metro"
-//    case pac = "PAC"
-//}
-
-enum TimeZoneCode: String, Codable {
-    case central = "CST"
-    case eastern = "EST"
-    case mountain = "MST"
-    case pacific = "PST"
+enum PositionTypeCode: String, Codable {
+    case defenseman = "Defenseman"
+    case forward = "Forward"
+    case goalie = "Goalie"
 }

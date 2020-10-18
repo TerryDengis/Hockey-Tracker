@@ -33,7 +33,7 @@ struct SummaryGoalView: View {
                 Text ("\(gameVM.homeScore)")
             }
         }
-        .font(.caption)
+        .font(.body)
     }
 }
 
