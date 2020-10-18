@@ -98,11 +98,16 @@ enum PositionCode: String, Codable {
     case defenseman = "D"
     case goalie = "G"
     case leftWing = "LW"
+    case left = "L"
     case rightWing = "RW"
+    case right = "R"
+    case notApplicable = "N/A"
+    
 }
 
 enum PositionTypeCode: String, Codable {
     case defenseman = "Defenseman"
     case forward = "Forward"
     case goalie = "Goalie"
+    case unknown = "Unknown"
 }

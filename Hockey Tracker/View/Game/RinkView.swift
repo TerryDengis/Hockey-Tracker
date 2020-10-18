@@ -17,7 +17,7 @@ struct RinkView: View {
     
     @State private var currentPeriod: Int = 0
     @State private var showSettings: Bool = false
-    @State private var updateView: Bool = false
+    @State private var showPlays: Bool = false
     
     let orientationChanged = NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
         .makeConnectable()
@@ -28,62 +28,73 @@ struct RinkView: View {
             ZStack {
                 Color("Background")
                     .edgesIgnoringSafeArea(.all)
-                ScrollView(.vertical) {
+                VStack {
                     PeriodView(currentPeriod: $currentPeriod).environmentObject(gameStore)
-                        .padding()
-                    ZStack {
-                        Image("Rink")
-                            .resizable()
-                            .scaledToFit()
-                        let plays = gameStore.playsForPeriod(currentPeriod)
-                        ForEach(plays, id: \.id) { play in
-                            ChevronView(play: play, displayWidth: geometry.size.width).environmentObject(gameStore)
+                        .padding(.top)
+                    ScrollView(.vertical) {
+                        ZStack {
+                            Image("Rink")
+                                .resizable()
+                                .scaledToFit()
+                            let plays = gameStore.playsForPeriod(currentPeriod)
+                            ForEach(plays, id: \.id) { play in
+                                ChevronView(play: play, displayWidth: geometry.size.width).environmentObject(gameStore)
+                            }
+                            .zIndex(1)
                         }
-                        .zIndex(1)
-                    }
-                    VStack() {
-                            SummaryShotsView()
-                                .environmentObject(gameStore)
-                                .foregroundColor(Color("Primary"))
-                                .padding([.horizontal, .bottom])
-                            SummaryGoalView()
-                                .environmentObject(gameStore)
-                                .foregroundColor(Color("Primary"))
-                                .padding(.horizontal)
-                    }
-
-                    .foregroundColor(Color("Primary"))
-                    .padding()
-                    Spacer()
-                } // ScrollView
-                .navigationBarTitle(Text ("\(gameStore.awayTeam) \(gameStore.awayScore) at \(gameStore.homeTeam) \(gameStore.homeScore) \(gameStore.gameStatus)"))
-                .navigationBarItems (
-                    trailing:
-                        Image(systemName: "gear")
-                        .imageScale(.large)
-                        .foregroundColor(.blue)
-                        .onTapGesture {
-                            self.showSettings.toggle()
+                        HStack {
+                            VStack(alignment: .leading) {
+                                SummaryShotsView()
+                                    .environmentObject(gameStore)
+                                    .padding(.bottom, 5)
+                                SummaryGoalView()
+                                    .environmentObject(gameStore)
+                                    .padding(.bottom, 5)
+                            }
+                            .foregroundColor(Color("Primary"))
+                            Spacer()
                         }
-                        .popover(isPresented: $showSettings) {
-                            SettingsView().environmentObject(gameStore)
-                                .frame(width: 350, height: 300)
+                        Spacer()
+                    } // ScrollView
+                    .navigationBarTitle(Text ("\(gameStore.awayTeam) \(gameStore.awayScore) at \(gameStore.homeTeam) \(gameStore.homeScore) \(gameStore.gameStatus)"))
+                    .navigationBarItems (
+                        leading: Image(systemName: "play")
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                            .onTapGesture {
+                                self.showPlays.toggle()
+                            }
+                            .popover(isPresented: $showPlays) {
+                                SummaryPlaysView(forPeriod: currentPeriod)
+                                    .environmentObject(gameStore)
+                            },
+                        trailing:
+                            Image(systemName: "gear")
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                            .onTapGesture {
+                                self.showSettings.toggle()
+                            }
+                            .popover(isPresented: $showSettings) {
+                                SettingsView().environmentObject(gameStore)
+                                    .frame(width: 350, height: 300)
+                            }
+                    )
+                    .onAppear {
+                        if showGoals == nil {
+                            showGoals = true
                         }
-                )
-                .onAppear {
-                    if showGoals == nil {
-                        showGoals = true
-                    }
-                    if showShots == nil {
-                        showShots = false
-                    }
-                    if showMissedShots == nil {
-                        showMissedShots = false
-                    }
-                    if showBlockedShots == nil {
-                        showBlockedShots = false
-                    }
-                    gameStore.fetchGameData()
+                        if showShots == nil {
+                            showShots = false
+                        }
+                        if showMissedShots == nil {
+                            showMissedShots = false
+                        }
+                        if showBlockedShots == nil {
+                            showBlockedShots = false
+                        }
+                        gameStore.fetchGameData()
+                }
                 }
             }
         } // Geometry

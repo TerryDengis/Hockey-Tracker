@@ -34,12 +34,11 @@ struct PlayDetailView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                     Spacer()
-                    Text("\(play.about.ordinalNum) \(play.about.period <= 3 ? "Period" :"") @ \(play.about.periodTime)")
+                    Text(play.ordinalEventTime())
                         .font(.title2)
                     Spacer()
                 }
                 .foregroundColor(Color("Primary"))
-
                 .padding()
                 .navigationBarTitle(play.result.event, displayMode: .inline)
                 .navigationBarItems(
@@ -49,9 +48,9 @@ struct PlayDetailView: View {
                         }) {
                             Text("Done")
                         }
-            )
+                )
             }
-        }
+        } // NavigationView
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ScheduleView: View {
     @EnvironmentObject var scheduleVM: ScheduleStore
+    
+    @State private var showInfoView = false
     @State private var showDatePicker = false
     @State private var selectedDate = Date()
     @GestureState private var dragState = DragState.inactive
@@ -72,6 +74,16 @@ struct ScheduleView: View {
                     } // VStack
                     .navigationBarTitle("NHL Schedule", displayMode: .inline)
                     .navigationBarItems (
+                        leading:
+                            Image(systemName: "info.circle")
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                            .onTapGesture {
+                                showInfoView.toggle()
+                            }
+                            .sheet(isPresented: $showInfoView) {
+                                InfoView()
+                            },
                         trailing:
                             Image(systemName: "calendar")
                             .imageScale(.large)

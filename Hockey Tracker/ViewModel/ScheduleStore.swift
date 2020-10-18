@@ -19,6 +19,9 @@ class ScheduleStore: ObservableObject {
         fetchScheduleData()
     }
     
+    var copywrite: String {
+        schedule?.copyright ?? "Undefined"
+    }
     func setDate(_ date: Date) {
         scheduleDate = date
         fetchScheduleData()

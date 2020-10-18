@@ -27,9 +27,14 @@
 		FEB1E3D02516F9C300951D10 /* LineScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3CF2516F9C300951D10 /* LineScore.swift */; };
 		FEB1E3D82516FA3D00951D10 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3D72516FA3D00951D10 /* Schedule.swift */; };
 		FEB1E3DD2516FB3000951D10 /* Model Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3DC2516FB3000951D10 /* Model Enums.swift */; };
-		FEB1E3E02516FD6D00951D10 /* Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1E3DF2516FD6D00951D10 /* Generated.swift */; };
 		FEBAA53E2538CC12001240CD /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBAA53D2538CC12001240CD /* DatePickerView.swift */; };
 		FEBAA5422538E312001240CD /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBAA5412538E312001240CD /* PopUpView.swift */; };
+		FED0CADB253CBAC30094E1E5 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0CADA253CBAC30094E1E5 /* InfoView.swift */; };
+		FED0CAE0253CBB6E0094E1E5 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0CADE253CBB6E0094E1E5 /* ButtonModifier.swift */; };
+		FED0CAE1253CBB6E0094E1E5 /* TitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0CADF253CBB6E0094E1E5 /* TitleModifier.swift */; };
+		FED0CAE4253CBC320094E1E5 /* HeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0CAE3253CBC320094E1E5 /* HeaderComponent.swift */; };
+		FED0CAEA253CCE760094E1E5 /* SummaryPlaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0CAE9253CCE760094E1E5 /* SummaryPlaysView.swift */; };
+		FED0CAEE253CF7EB0094E1E5 /* Play+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0CAED253CF7EB0094E1E5 /* Play+Extension.swift */; };
 		FEDFA52D25226BC6003EE9BE /* PlayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA52C25226BC6003EE9BE /* PlayDetailView.swift */; };
 		FEE83DA82513188300ECCB54 /* SummaryGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE83DA72513188300ECCB54 /* SummaryGoalView.swift */; };
 		FEF727362513C74C00713CFE /* PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF727352513C74C00713CFE /* PeriodView.swift */; };
@@ -59,9 +64,14 @@
 		FEB1E3CF2516F9C300951D10 /* LineScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineScore.swift; sourceTree = "<group>"; };
 		FEB1E3D72516FA3D00951D10 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		FEB1E3DC2516FB3000951D10 /* Model Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model Enums.swift"; sourceTree = "<group>"; };
-		FEB1E3DF2516FD6D00951D10 /* Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generated.swift; sourceTree = "<group>"; };
 		FEBAA53D2538CC12001240CD /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		FEBAA5412538E312001240CD /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		FED0CADA253CBAC30094E1E5 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		FED0CADE253CBB6E0094E1E5 /* ButtonModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
+		FED0CADF253CBB6E0094E1E5 /* TitleModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleModifier.swift; sourceTree = "<group>"; };
+		FED0CAE3253CBC320094E1E5 /* HeaderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderComponent.swift; sourceTree = "<group>"; };
+		FED0CAE9253CCE760094E1E5 /* SummaryPlaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryPlaysView.swift; sourceTree = "<group>"; };
+		FED0CAED253CF7EB0094E1E5 /* Play+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Play+Extension.swift"; sourceTree = "<group>"; };
 		FEDFA52C25226BC6003EE9BE /* PlayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayDetailView.swift; sourceTree = "<group>"; };
 		FEE83DA72513188300ECCB54 /* SummaryGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryGoalView.swift; sourceTree = "<group>"; };
 		FEF727352513C74C00713CFE /* PeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodView.swift; sourceTree = "<group>"; };
@@ -82,10 +92,11 @@
 		FE2E51CB2516EA5500EF10CE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE3861BA251A3C50009E5F94 /* Schedule */,
 				FE2E51D72516EB4B00EF10CE /* Game */,
+				FED0CAE6253CC2CC0094E1E5 /* Info */,
 				FE428FD92512807A005BB4CC /* Assets.xcassets */,
 				FE2E51D92516EBC200EF10CE /* DrawingConstants.swift */,
-				FE3861BA251A3C50009E5F94 /* Schedule */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -104,6 +115,7 @@
 			children = (
 				FE2E51D12516EB2400EF10CE /* GameStore.swift */,
 				FE2E51D42516EB3B00EF10CE /* ScheduleStore.swift */,
+				FED0CAED253CF7EB0094E1E5 /* Play+Extension.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -116,7 +128,6 @@
 				FEB1E3D72516FA3D00951D10 /* Schedule.swift */,
 				FEB1E3CF2516F9C300951D10 /* LineScore.swift */,
 				FEB1E3DC2516FB3000951D10 /* Model Enums.swift */,
-				FEB1E3DF2516FD6D00951D10 /* Generated.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +139,7 @@
 				FEF727352513C74C00713CFE /* PeriodView.swift */,
 				FEE83DA72513188300ECCB54 /* SummaryGoalView.swift */,
 				FE2E51C02516BCA500EF10CE /* SummaryShotsView.swift */,
+				FED0CAE9253CCE760094E1E5 /* SummaryPlaysView.swift */,
 				FE2E51DC2516EDB100EF10CE /* ChevronView.swift */,
 				FE1BFC6E251C3CC900D22073 /* SettingsView.swift */,
 				FEDFA52C25226BC6003EE9BE /* PlayDetailView.swift */,
@@ -167,6 +179,7 @@
 		FE428FD425128079005BB4CC /* Hockey Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				FED0CADD253CBB520094E1E5 /* Modifier */,
 				FE428FD525128079005BB4CC /* Hockey_TrackerApp.swift */,
 				FE2E51D02516EAB900EF10CE /* Model */,
 				FE2E51CB2516EA5500EF10CE /* View */,
@@ -184,6 +197,24 @@
 				FE428FDC2512807A005BB4CC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FED0CADD253CBB520094E1E5 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				FED0CADE253CBB6E0094E1E5 /* ButtonModifier.swift */,
+				FED0CADF253CBB6E0094E1E5 /* TitleModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		FED0CAE6253CC2CC0094E1E5 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				FED0CADA253CBAC30094E1E5 /* InfoView.swift */,
+				FED0CAE3253CBC320094E1E5 /* HeaderComponent.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,12 +289,15 @@
 				FEBAA5422538E312001240CD /* PopUpView.swift in Sources */,
 				FEBAA53E2538CC12001240CD /* DatePickerView.swift in Sources */,
 				FE1BFC6F251C3CC900D22073 /* SettingsView.swift in Sources */,
+				FED0CAE0253CBB6E0094E1E5 /* ButtonModifier.swift in Sources */,
 				FEB1E3D02516F9C300951D10 /* LineScore.swift in Sources */,
 				FEDFA52D25226BC6003EE9BE /* PlayDetailView.swift in Sources */,
 				FE428FD825128079005BB4CC /* RinkView.swift in Sources */,
+				FED0CAE1253CBB6E0094E1E5 /* TitleModifier.swift in Sources */,
 				FE2E51D22516EB2400EF10CE /* GameStore.swift in Sources */,
 				FEF727362513C74C00713CFE /* PeriodView.swift in Sources */,
 				FEB1E3DD2516FB3000951D10 /* Model Enums.swift in Sources */,
+				FED0CAEE253CF7EB0094E1E5 /* Play+Extension.swift in Sources */,
 				FE428FD625128079005BB4CC /* Hockey_TrackerApp.swift in Sources */,
 				FEB1E3D82516FA3D00951D10 /* Schedule.swift in Sources */,
 				FE2E51DD2516EDB100EF10CE /* ChevronView.swift in Sources */,
@@ -273,11 +307,13 @@
 				FEE83DA82513188300ECCB54 /* SummaryGoalView.swift in Sources */,
 				FE1BFC65251BE02400D22073 /* Date+Extension.swift in Sources */,
 				FE2E51C52516D7AE00EF10CE /* Constants.swift in Sources */,
+				FED0CADB253CBAC30094E1E5 /* InfoView.swift in Sources */,
+				FED0CAE4253CBC320094E1E5 /* HeaderComponent.swift in Sources */,
 				FE1BFC62251BB22600D22073 /* DateSelectionView.swift in Sources */,
-				FEB1E3E02516FD6D00951D10 /* Generated.swift in Sources */,
 				FE2E51DA2516EBC200EF10CE /* DrawingConstants.swift in Sources */,
 				FEF727382513C78E00713CFE /* ScoreView.swift in Sources */,
 				FE2E51D52516EB3B00EF10CE /* ScheduleStore.swift in Sources */,
+				FED0CAEA253CCE760094E1E5 /* SummaryPlaysView.swift in Sources */,
 				FE2E51C12516BCA500EF10CE /* SummaryShotsView.swift in Sources */,
 				FE3861B8251A3AD1009E5F94 /* ScheduleView.swift in Sources */,
 			);

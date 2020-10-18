@@ -115,7 +115,7 @@ struct GameSummary: Codable {
             let nationality, height: String
             let weight: Int
             let active, rookie: Bool
-            let shootsCatches: String
+            let shootsCatches: String?
             let rosterStatus: String
             let primaryPosition: PrimaryPosition
             let currentAge: Int?
@@ -148,30 +148,28 @@ struct GameSummary: Codable {
         let plays: Plays
         // MARK: - Defined in Linescore.swift
         let linescore: Linescore?
-        //let boxscore: Boxscore
+        let boxscore: Boxscore?
         let decisions: Decisions?
         
-
         struct Boxscore: Codable {
             let teams: Teams
-            let officilas: [Officials]
+            let officials: [Officials]
             
             struct Teams: Codable {
                 let away: TeamDetail
                 let home: TeamDetail
                 
-                // TODO: - TeamDetail needs completion
                 struct TeamDetail: Codable {
                     let team: Team
-                    //let teamStats
-                    //let players
-                    //let goalies
-                    //let skaters
-                    //let onIce
-                    //let onIcePlus
-                    //let scratches
-                    //let penaltyBox
-                    //let coaches
+                    let teamStats: TeamStats
+                    let players: [String: Player]
+                    let goalies: [Int]
+                    let skaters: [Int]
+                    let onIce: [Int]
+                    let onIcePlus: [OnIcePlus]
+                    let scratches: [Int]
+                    //let penaltyBox: ?????
+                    let coaches: [Coaches]
                     
                     struct Team: Codable {
                         let id: Int
@@ -179,6 +177,73 @@ struct GameSummary: Codable {
                         let link: String
                         let abbreviation: String
                         let triCode: TeamCode
+                    }
+                    
+                    struct TeamStats: Codable {
+                        let teamSkaterStats: TeamSkaterStats
+                        
+                        struct TeamSkaterStats: Codable {
+                            let goals, pim, shots: Int
+                            let powerPlayPercentage: String
+                            let powerPlayGoals, powerPlayOpportunities: Int
+                            let faceOffWinPercentage: String?
+                            let blocked, takeaways, giveaways, hits: Int?
+                        }
+                    }
+                    
+                    struct Player: Codable {
+                        let person: Person
+                        let jerseyNumber: String?
+                        let position: Position
+                        let stats: Stats?
+                        
+                        struct Person: Codable {
+                            let id: Int
+                            let fullName: String
+                            let link: String
+                            let shootsCatches: String?
+                            let rosterStatus: String
+                        }
+                        
+                        struct Position: Codable {
+                            let code: PositionCode
+                            let name: String
+                            let type: PositionTypeCode
+                            let abbreviation: String
+                        }
+                        
+                        struct Stats: Codable {
+                            let stats: SkaterStats?
+                            
+                            struct SkaterStats: Codable {
+                                let timeOnIce: String
+                                let assists, goals, shots, hits: Int
+                                let powerPlayGoals, powerPlayAssists, penaltyMinutes, faceOffWins: Int
+                                let faceoffTaken, takeaways, giveaways, shortHandedGoals: Int
+                                let shortHandedAssists, blocked, plusMinus: Int
+                                let evenTimeOnIce, powerPlayTimeOnIce, shortHandedTimeOnIce: String
+                                let faceOffPct: Double?
+                            }
+                        }
+                    }
+                    
+                    struct OnIcePlus: Codable {
+                        let playerId, shiftDuration, stamina: Int
+                    }
+                    
+                    struct Coaches: Codable {
+                        let person: Person
+                        let position: Position
+                    
+                        struct Person: Codable {
+                            let fullName, link: String
+                        }
+                        
+                        struct Position: Codable {
+                            let code, name: String
+                            let type: String
+                            let abbreviation: String
+                        }
                     }
                 }
             }
@@ -188,7 +253,7 @@ struct GameSummary: Codable {
                 let officialType: String
                 
                 struct Official: Codable {
-                    let id: Int
+                    let id: Int?
                     let fullName: String
                     let link: String
                 }
@@ -278,7 +343,7 @@ struct GameSummary: Codable {
             struct CurrentPlay: Codable {
                 let result: Result
                 let about: About
-                //let coordinates: Coordinates
+                //let coordinates: ?????
                 
                 struct Result: Codable {
                     let event: String
