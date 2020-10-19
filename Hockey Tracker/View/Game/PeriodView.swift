@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct PeriodView: View {
-    @EnvironmentObject var gameVM: GameStore
+    @EnvironmentObject var gameStore: GameStore
     @Binding var currentPeriod: Int
     
     var body: some View {
         HStack {
-            if let periods = gameVM.periods {
+            if let periods = gameStore.periods {
                 ForEach(periods, id: \.id) { period in
                     Button(period.ordinalNum) {
                         withAnimation {
@@ -26,7 +26,7 @@ struct PeriodView: View {
                     .foregroundColor(Color("Primary"))
                     .cornerRadius(5)
                 }
-                if gameVM.shootOut {
+                if gameStore.shootOut {
                     Button("SO") {
                         currentPeriod = 5
                     }

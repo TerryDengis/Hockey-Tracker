@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlayDetailView: View {
-    @EnvironmentObject var gameVM: GameStore
+    @EnvironmentObject var gameStore: GameStore
     @Environment(\.presentationMode) var presentationMode
     
     var play: GameSummary.LiveData.Plays.Play
@@ -25,7 +25,7 @@ struct PlayDetailView: View {
                         .frame(width:100, height: 100)
                     Text(play.team!.name)
                         .font(.title)
-                        .foregroundColor(Color(gameVM.teamColor((play.team?.triCode) ?? .Calgary)))
+                        .foregroundColor(Color(gameStore.teamColor((play.team?.triCode) ?? .Calgary)))
                         .padding()
                         .background(Capsule().fill(Color("Secondary")))
                     Text(play.result.description)

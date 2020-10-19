@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct SummaryShotsView: View {
-    @EnvironmentObject var gameVM: GameStore
+    @EnvironmentObject var gameStore: GameStore
     
     var body: some View {
         HStack {
             VStack {
                 Text ("Shots")
                     .fontWeight(.bold)
-                Text (gameVM.awayTeamAbbreviation)
-                Text (gameVM.homeTeamAbbreviation)
+                Text (gameStore.awayTeamAbbreviation)
+                Text (gameStore.homeTeamAbbreviation)
             }
-            if let periods = gameVM.periods {
+            if let periods = gameStore.periods {
                 
                 ForEach(periods, id: \.id) { period in
                     VStack {
@@ -31,8 +31,8 @@ struct SummaryShotsView: View {
             VStack {
                 Text ("Tot")
                     .fontWeight(.bold)
-                Text ("\(gameVM.awayShots)")
-                Text ("\(gameVM.homeShots)")
+                Text ("\(gameStore.awayShots)")
+                Text ("\(gameStore.homeShots)")
             }
         }
         .font(.body)

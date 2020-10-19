@@ -1,5 +1,5 @@
 //
-//  GameVM.swift
+//  gameStore.swift
 //  Hockey Tracker
 //
 //  Created by Terry Dengis on 9/19/20.
@@ -24,6 +24,7 @@ class GameStore: ObservableObject {
     func setUrl(_ url: String) {
         self.gameLink = url
     }
+    
     func fetchGameData() {
         if let url = URL(string: gameLink ) {
             print (" game URL", gameLink)
@@ -51,14 +52,6 @@ class GameStore: ObservableObject {
     func setGameUrl (_ url: String) {
         print (url)
         gameLink = url
-    }
-    
-    func teamColorFor (_ play: GameSummary.LiveData.Plays.Play) -> UIColor {
-        if play.team?.triCode == gameSummary?.gameData.teams.away.triCode {
-            return awayTeamColor
-        } else {
-            return homeTeamColor
-        }
     }
     
     func eventImageFor (_ play: GameSummary.LiveData.Plays.Play) -> String {
@@ -90,21 +83,6 @@ class GameStore: ObservableObject {
         }
     }
     
-    func xCoordinateFor (_ play: GameSummary.LiveData.Plays.Play) -> CGFloat {
-        if let x = play.coordinates.x {
-            return CGFloat(x) + rinkWidth / 2.0
-        }
-        return 0.0
-    }
-    
-    func yCoordinateFor (_ play: GameSummary.LiveData.Plays.Play) -> CGFloat{
-        if let y = play.coordinates.y {
-            return CGFloat(y * -1) + rinkHeight / 2.0
-        }
-        return 0.0
-    }
-    
-
     func playsForPeriod(_ period: Int) -> [GameSummary.LiveData.Plays.Play] {
         var plays = [GameSummary.LiveData.Plays.Play]()
         if period > 0 {
@@ -125,23 +103,17 @@ class GameStore: ObservableObject {
         return plays
     }
     
-    func playersInvolvedIn(_ play: GameSummary.LiveData.Plays.Play) -> [GameSummary.LiveData.Plays.Play.PlayersInvolved.Player] {
-        var players = [GameSummary.LiveData.Plays.Play.PlayersInvolved.Player] ()
-        if let involvedPlayers = play.players {
-            for index in 0..<involvedPlayers.count {
-                players.append(involvedPlayers[index].player)
-            }
-        }
-        
-        return players
-    }
+//    func playersInvolvedIn(_ play: GameSummary.LiveData.Plays.Play) -> [GameSummary.LiveData.Plays.Play.PlayersInvolved.Player] {
+//        var players = [GameSummary.LiveData.Plays.Play.PlayersInvolved.Player] ()
+//        if let involvedPlayers = play.players {
+//            for index in 0..<involvedPlayers.count {
+//                players.append(involvedPlayers[index].player)
+//            }
+//        }
+//        
+//        return players
+//    }
     
-    func  isGoal(_ play: GameSummary.LiveData.Plays.Play) -> Bool {
-        if play.result.eventTypeId == .goal {
-            return true
-        }
-        return false
-    }
     var shootOut: Bool {
         if let lineScore = gameSummary?.liveData.linescore {
             return lineScore.hasShootout

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DatePickerView: View {
-    @EnvironmentObject var scheduleVM: ScheduleStore
+    @EnvironmentObject var scheduleStore: ScheduleStore
     @Environment(\.presentationMode) var presentationMode
     @State private var selectedDate = Date()
     
@@ -33,7 +33,7 @@ struct DatePickerView: View {
                         },
                     trailing:
                         Button(action: {
-                            scheduleVM.setDate(selectedDate)
+                            scheduleStore.setDate(selectedDate)
                             presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("OK")
@@ -43,7 +43,7 @@ struct DatePickerView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear() {
-            selectedDate = scheduleVM.scheduleDate
+            selectedDate = scheduleStore.scheduleDate
         }
     }
 }

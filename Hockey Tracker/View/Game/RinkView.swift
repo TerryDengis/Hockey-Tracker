@@ -10,14 +10,10 @@ import SwiftUI
 struct RinkView: View {
     @StateObject var gameStore: GameStore
     
-    @AppStorage ("showGoals") var showGoals: Bool?
-    @AppStorage ("showShots") var showShots: Bool?
-    @AppStorage ("showMissedShots") var showMissedShots: Bool?
-    @AppStorage ("showBlockedShots") var showBlockedShots: Bool?
-    
-    @State private var currentPeriod: Int = 0
+    @State private var currentPeriod: Int = 1
     @State private var showSettings: Bool = false
     @State private var showPlays: Bool = false
+    @State private var orientation: Bool = false
     
     let orientationChanged = NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
         .makeConnectable()
@@ -58,13 +54,13 @@ struct RinkView: View {
                     } // ScrollView
                     .navigationBarTitle(Text ("\(gameStore.awayTeam) \(gameStore.awayScore) at \(gameStore.homeTeam) \(gameStore.homeScore) \(gameStore.gameStatus)"))
                     .navigationBarItems (
-                        leading: Image(systemName: "play")
+                        leading: Image(systemName: "list.bullet.rectangle")
                             .imageScale(.large)
                             .foregroundColor(.blue)
                             .onTapGesture {
                                 self.showPlays.toggle()
                             }
-                            .popover(isPresented: $showPlays) {
+                            .sheet(isPresented: $showPlays) {
                                 SummaryPlaysView(forPeriod: currentPeriod)
                                     .environmentObject(gameStore)
                             },
@@ -75,29 +71,22 @@ struct RinkView: View {
                             .onTapGesture {
                                 self.showSettings.toggle()
                             }
-                            .popover(isPresented: $showSettings) {
+                            .sheet(isPresented: $showSettings) {
                                 SettingsView().environmentObject(gameStore)
-                                    .frame(width: 350, height: 300)
                             }
                     )
                     .onAppear {
-                        if showGoals == nil {
-                            showGoals = true
-                        }
-                        if showShots == nil {
-                            showShots = false
-                        }
-                        if showMissedShots == nil {
-                            showMissedShots = false
-                        }
-                        if showBlockedShots == nil {
-                            showBlockedShots = false
-                        }
                         gameStore.fetchGameData()
-                }
+                    }
                 }
             }
+
         } // Geometry
+        .onReceive(orientationChanged) { _ in
+            orientation.toggle()
+            
+            print ("recieved orientation change")
+        }
     }
 }
 

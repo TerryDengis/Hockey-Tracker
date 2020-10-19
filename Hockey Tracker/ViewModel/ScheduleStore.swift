@@ -1,5 +1,5 @@
 //
-//  ScheduleVM.swift
+//  ScheduleStore.swift
 //  Hockey Tracker
 //
 //  Created by Terry Dengis on 9/19/20.

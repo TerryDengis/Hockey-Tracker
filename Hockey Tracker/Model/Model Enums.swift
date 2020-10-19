@@ -102,7 +102,6 @@ enum PositionCode: String, Codable {
     case rightWing = "RW"
     case right = "R"
     case notApplicable = "N/A"
-    
 }
 
 enum PositionTypeCode: String, Codable {

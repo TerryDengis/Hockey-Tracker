@@ -17,6 +17,12 @@ let shot = "plus"
 let soShot = "s"
 let missedShot = "minus"
 let blockedShot = "multiply"
+let faceoff = "arrow.left.arrow.right"
+let givaway = "chevron.right"
+let hit = "number"
+let penalty = "star"
+let takeaway = "chevron.left"
+let challenge = "questionmark"
 
 // team home primary colors
 let atlanta = "#041E42"

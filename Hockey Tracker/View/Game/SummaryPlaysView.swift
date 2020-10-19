@@ -30,7 +30,7 @@ struct SummaryPlaysView: View {
                                 Spacer()
                             }
                             .background(Capsule().fill(Color("Secondary")))
-                            .foregroundColor(Color(gameStore.teamColorFor(play)))
+                            .foregroundColor(Color(gameStore.teamColor(play.teamCode())))
                             .padding(5)
                             .background(Capsule().fill(Color("Secondary")))
                             HStack {
@@ -38,6 +38,7 @@ struct SummaryPlaysView: View {
                                     .font(.body)
                                     .lineLimit(.none)
                                     .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
                                 Spacer()
                             }
                             .padding(.horizontal)

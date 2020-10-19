@@ -8,41 +8,41 @@
 import SwiftUI
 
 struct ScoreView: View {
-    @EnvironmentObject var scheduleVM: ScheduleStore
+    @EnvironmentObject var scheduleStore: ScheduleStore
     var game: Schedule.Games.GameDetail
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack  {
-                Image(scheduleVM.awayTeamNameFor(game))
+                Image(scheduleStore.awayTeamNameFor(game))
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40, height: 40)
-                Text (scheduleVM.awayTeamNameFor(game))
+                Text (scheduleStore.awayTeamNameFor(game))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Primary"))
-                Text ("\(scheduleVM.awayTeamScoreFor(game))")
+                Text ("\(scheduleStore.awayTeamScoreFor(game))")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Primary"))
             }
             
             HStack {
                 Spacer()
-                Text (scheduleVM.gameStatus(for: game))
+                Text (scheduleStore.gameStatus(for: game))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Primary"))
                 Image(systemName: "chevron.right")
                     .padding(.leading)
             }
             HStack {
-                Image(scheduleVM.homeTeamNameFor(game))
+                Image(scheduleStore.homeTeamNameFor(game))
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40, height: 40)
-                Text (scheduleVM.homeTeamNameFor(game))
+                Text (scheduleStore.homeTeamNameFor(game))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Primary"))
-                Text ("\(scheduleVM.homeTeamScoreFor(game))")
+                Text ("\(scheduleStore.homeTeamScoreFor(game))")
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Primary"))
             }

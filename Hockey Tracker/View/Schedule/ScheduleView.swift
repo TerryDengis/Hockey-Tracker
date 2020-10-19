@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @EnvironmentObject var scheduleVM: ScheduleStore
+    @EnvironmentObject var scheduleStore: ScheduleStore
     
     @State private var showInfoView = false
     @State private var showDatePicker = false
@@ -63,14 +63,14 @@ struct ScheduleView: View {
                     Color("Background")
                         .edgesIgnoringSafeArea(.all)
                     VStack(spacing: 0) {
-                        DateSelectionView().environmentObject(scheduleVM)
+                        DateSelectionView().environmentObject(scheduleStore)
                         HStack {
-                            Text (scheduleVM.scheduleDate.convertToString(dateformat: .day))
+                            Text (scheduleStore.scheduleDate.convertToString(dateformat: .day))
                                 .foregroundColor(Color("Primary"))
                             Spacer()
                         }
                         .padding()
-                        GameListView().environmentObject(scheduleVM)
+                        GameListView().environmentObject(scheduleStore)
                     } // VStack
                     .navigationBarTitle("NHL Schedule", displayMode: .inline)
                     .navigationBarItems (
@@ -92,7 +92,7 @@ struct ScheduleView: View {
                                 self.showDatePicker.toggle()
                             }
                             .sheet(isPresented: $showDatePicker) {
-                                DatePickerView().environmentObject(scheduleVM)
+                                DatePickerView().environmentObject(scheduleStore)
                                     .frame(width:300, height:400)
                             }
                     )
@@ -103,9 +103,9 @@ struct ScheduleView: View {
                                 return
                             }
                             if drag.translation.width < -dragAreaThreshold {
-                                scheduleVM.subtractDay()
+                                scheduleStore.subtractDay()
                             } else if drag.translation.width > dragAreaThreshold {
-                                scheduleVM.addDay()
+                                scheduleStore.addDay()
                             }
                         })
                     )

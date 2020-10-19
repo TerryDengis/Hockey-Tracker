@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ChevronView: View {
-    @EnvironmentObject var gameVM: GameStore
+    @EnvironmentObject var gameStore: GameStore
     var play: GameSummary.LiveData.Plays.Play
     var displayWidth: CGFloat
     
     @State private var showPlayDetails = false
-
     
     var body: some View {
         Group {
-            EView(play: play, displayWidth: displayWidth, showPlayDetails: $showPlayDetails)
+            EventView(play: play, displayWidth: displayWidth, showPlayDetails: $showPlayDetails)
                 .sheet(isPresented: $showPlayDetails) {
-                    PlayDetailView(play:play).environmentObject(gameVM)
+                    PlayDetailView(play:play).environmentObject(gameStore)
                         //.frame(width: 500, height: 600)
             }
         }
+
         .transition(AnyTransition.asymmetric(
                         insertion: .slide,
                         removal: .slide))
@@ -36,8 +36,8 @@ struct ChevronView: View {
 //    }
 //}
 
-struct EView: View {
-    @EnvironmentObject var gameVM: GameStore
+struct EventView: View {
+    @EnvironmentObject var gameStore: GameStore
     var play: GameSummary.LiveData.Plays.Play
     var displayWidth: CGFloat
     @Binding var showPlayDetails: Bool
@@ -47,21 +47,21 @@ struct EView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: gameVM.eventImageFor(play))
+            Image(systemName: gameStore.eventImageFor(play))
                 .font(.system(size: chevronFont , weight:.bold))
-                .foregroundColor(Color(gameVM.teamColorFor(play)))
+                .foregroundColor(Color(gameStore.teamColor(play.teamCode())))
                 .onTapGesture {
                     self.showPlayDetails.toggle()
                 }
-                .rotationEffect(.degrees(gameVM.isGoal(play) ? rotation : 0))
+                .rotationEffect(.degrees(play.isGoal() ? rotation : 0))
                 .animation( Animation.linear(duration: 2).repeatForever(autoreverses: false))
-                .scaleEffect(gameVM.isGoal(play) ? scale : 1.0)
+                .scaleEffect(play.isGoal() ? scale : 1.0)
                 //.animation( Animation.linear(duration: 2).repeatForever(autoreverses: true))
                 .onAppear {
                     self.rotation = 360
                     scale = 1.5
                 }
-                .position(x: gameVM.xCoordinateFor(play) * (displayWidth / rinkWidth), y: gameVM.yCoordinateFor(play) * (displayWidth/rinkWidth))
+                .position(x: play.xCoordinate() * (displayWidth / rinkWidth), y: play.yCoordinate() * (displayWidth / rinkWidth))
         }
     }
     
