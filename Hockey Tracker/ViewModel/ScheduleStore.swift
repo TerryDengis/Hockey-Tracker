@@ -12,10 +12,10 @@ class ScheduleStore: ObservableObject {
     private (set) var scheduleDate = Date()
 
     init() {
-        let formatter = DateFormatter()
+//        let formatter = DateFormatter()
         // TODO: - Hard coding for testing
-        formatter.dateFormat = "yyyy-MM-dd"
-        scheduleDate = formatter.date(from: "2020-02-25")!
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        scheduleDate = formatter.date(from: "2021-01-13")!
         fetchScheduleData()
     }
     
@@ -72,7 +72,7 @@ class ScheduleStore: ObservableObject {
     
     func gameStatus(for game: Schedule.Games.GameDetail) -> String {
         switch (game.status.statusCode) {
-        case .scheduled, .pregame:
+        case .scheduled, .pregame, .preview:
             return getStartTime(game)
         case .inProgress, .inProgressCritical:
             return "\(game.linescore.currentPeriodOrdinal ?? "Unkown") \(game.linescore.currentPeriodTimeRemaining!)"
@@ -82,6 +82,8 @@ class ScheduleStore: ObservableObject {
             } else {
                 return "\(game.linescore.currentPeriodTimeRemaining!) (\(game.linescore.currentPeriodOrdinal ?? "Unkown"))"
             }
+        case .postponed:
+            return ("Postponed")
         }
     }
 

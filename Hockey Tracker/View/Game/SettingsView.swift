@@ -12,7 +12,7 @@ struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @AppStorage ("showGoals") var showGoals: Bool = true
-    @AppStorage ("showShots") var showShots: Bool = false
+    @AppStorage ("showShots") var showShots: Bool = true
     @AppStorage ("showMissedShots") var showMissedShots: Bool = false
     @AppStorage ("showBlockedShots") var showBlockedShots: Bool = false
 

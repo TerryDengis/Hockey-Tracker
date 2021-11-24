@@ -12,10 +12,10 @@ class GameStore: ObservableObject {
     private var gameLink: String
     @Published private var gameSummary: GameSummary?
     
-    @AppStorage ("showGoals") var showGoals: Bool?
-    @AppStorage ("showShots") var showShots: Bool?
-    @AppStorage ("showMissedShots") var showMissedShots: Bool?
-    @AppStorage ("showBlockedShots") var showBlockedShots: Bool?
+    @AppStorage ("showGoals") var showGoals: Bool = true
+    @AppStorage ("showShots") var showShots: Bool = true
+    @AppStorage ("showMissedShots") var showMissedShots: Bool = false
+    @AppStorage ("showBlockedShots") var showBlockedShots: Bool = false
     
     init (gameLink: String = "") {
         self.gameLink = gameLink
@@ -91,10 +91,10 @@ class GameStore: ObservableObject {
             guard let allPlays = gameSummary?.liveData.plays.allPlays else { return plays }
             
             for index in startIndex...endIndex {
-                if allPlays[index].result.eventTypeId == EventType.goal  && showGoals! ||
-                    allPlays[index].result.eventTypeId == EventType.shot && showShots! ||
-                    allPlays[index].result.eventTypeId == EventType.blockedShot && showBlockedShots! ||
-                    allPlays[index].result.eventTypeId == EventType.missedShot && showMissedShots! {
+                if allPlays[index].result.eventTypeId == EventType.goal  && showGoals ||
+                    allPlays[index].result.eventTypeId == EventType.shot && showShots ||
+                    allPlays[index].result.eventTypeId == EventType.blockedShot && showBlockedShots ||
+                    allPlays[index].result.eventTypeId == EventType.missedShot && showMissedShots {
                     plays.append(allPlays[index])
                 }
             }
@@ -288,6 +288,8 @@ class GameStore: ObservableObject {
             return UIColor(hexString: pittsburgh)
         case .SanJose:
             return UIColor(hexString: sanJose)
+        case .Seattle:
+            return UIColor(hexString: seattle)
         case .StLouis:
             return UIColor(hexString: stLouis)
         case .TampaBay:

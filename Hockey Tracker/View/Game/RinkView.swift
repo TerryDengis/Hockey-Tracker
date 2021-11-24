@@ -10,7 +10,7 @@ import SwiftUI
 struct RinkView: View {
     @StateObject var gameStore: GameStore
     
-    @State private var currentPeriod: Int = 1
+    @State private var currentPeriod: Int = 0
     @State private var showSettings: Bool = false
     @State private var showPlays: Bool = false
     @State private var orientation: Bool = false

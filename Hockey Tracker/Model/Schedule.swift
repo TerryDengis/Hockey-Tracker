@@ -64,7 +64,7 @@ struct Schedule: Codable {
             struct LeagueRecord: Codable {
                 let wins: Int
                 let losses: Int
-                let ot: Int
+                let ot: Int?
                 let type: String
             }
             

@@ -38,6 +38,7 @@ enum TeamCode: String, Codable {
     case Philadelphia = "PHI" //    Philadelphia Flyers
     case Pittsburgh = "PIT" //    Pittsburgh Penguins
     case SanJose = "SJS" //    San Jose Sharks
+    case Seattle = "SEA" //    Seattle Kraken
     case StLouis = "STL" //    St. Louis Blues
     case TampaBay = "TBL" //    Tampa Bay Lightning
     case Toronto = "TOR" //    Toronto Maple Leafs
@@ -91,6 +92,8 @@ enum StatusCode: String, Codable {
     case gameOver = "5"
     case unofficial = "6"
     case final = "7"
+    case preview = "8"
+    case postponed = "9"
 }
 
 enum PositionCode: String, Codable {
