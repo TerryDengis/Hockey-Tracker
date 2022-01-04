@@ -47,6 +47,7 @@ struct ScheduleView: View {
             }
         }
     }
+    
     init() {
         UINavigationBar.appearance().backgroundColor = UIColor(hexString: "1E1E21")
         //UINavigationBar.appearance().backgroundColor = UIColor.blue

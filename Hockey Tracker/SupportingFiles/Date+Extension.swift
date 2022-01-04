@@ -16,6 +16,8 @@ enum DateFormatType: String {
     case reverseDate = "yyyy-MM-dd"
     case shortDate = "MMM dd"
     case day = "EEEE, MMM d, yyyy"
+    //20220102203000 -0800
+    //yyyymmddhhmmss Z
 }
 
 extension Date {
